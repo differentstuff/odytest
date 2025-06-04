@@ -19,7 +19,7 @@ OdyTest provides a modular, sequential testing approach to fairly compare differ
 ## Architecture
 
 ```
-odytest2/
+odytest/
 ├── config.py              # Model configurations and settings
 ├── test_cases.py           # Comprehensive multilingual test scenarios
 ├── prompt_manager.py       # Prompt variants and management
@@ -38,8 +38,8 @@ odytest2/
 ### 1. Setup (Windows)
 
 ```bash
-# Navigate to the odytest2 directory
-cd tests/odytest2
+# Navigate to the odytest directory
+cd tests/odytest
 
 # Run setup script to create virtual environment
 setup.bat
