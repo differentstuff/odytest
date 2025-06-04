@@ -1,0 +1,1341 @@
+{
+  "metadata": {
+    "model_name": "qwen3:0.6b",
+    "prompt_variant": "production",
+    "timestamp": "20250603_170207",
+    "total_test_cases": 24,
+    "test_duration": 46.56541109085083
+  },
+  "summary_stats": {
+    "total_tests": 24,
+    "success_rate": 1.0,
+    "json_validity_rate": 0.7083333333333334,
+    "intent_accuracy_rate": 0.4583333333333333,
+    "model_name": "qwen3:0.6b",
+    "model_description": "qwen3 0.6b - Superior human preference alignment",
+    "timing": {
+      "avg_inference_time": 1.9402254621187847,
+      "median_inference_time": 1.9109424352645874,
+      "min_inference_time": 1.1281936168670654,
+      "max_inference_time": 2.6556577682495117
+    },
+    "confidence": {
+      "avg_confidence": 0.5294117647058824,
+      "median_confidence": 1.0,
+      "min_confidence": 0.0,
+      "max_confidence": 1.0
+    },
+    "by_language": {
+      "German": {
+        "total": 4,
+        "accuracy": 0.5
+      },
+      "English": {
+        "total": 16,
+        "accuracy": 0.5
+      },
+      "French": {
+        "total": 2,
+        "accuracy": 0.0
+      },
+      "Italian": {
+        "total": 2,
+        "accuracy": 0.5
+      }
+    },
+    "by_difficulty": {
+      "Easy": {
+        "total": 4,
+        "accuracy": 0.75
+      },
+      "Very Hard": {
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "Hard": {
+        "total": 11,
+        "accuracy": 0.36363636363636365
+      },
+      "Medium": {
+        "total": 8,
+        "accuracy": 0.375
+      }
+    },
+    "by_category": {
+      "creation": {
+        "total": 4,
+        "accuracy": 0.75
+      },
+      "information": {
+        "total": 3,
+        "accuracy": 0.3333333333333333
+      },
+      "edge": {
+        "total": 5,
+        "accuracy": 0.4
+      },
+      "modification": {
+        "total": 2,
+        "accuracy": 0.5
+      },
+      "analysis": {
+        "total": 2,
+        "accuracy": 0.5
+      },
+      "view": {
+        "total": 3,
+        "accuracy": 0.6666666666666666
+      },
+      "emergency": {
+        "total": 5,
+        "accuracy": 0.2
+      }
+    }
+  },
+  "detailed_results": [
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 0,
+      "input_query": "Anna can't work Friday evening, who can replace her?",
+      "expected_intent": "emergency_replacement",
+      "expected_entities": {
+        "employee_name": "Anna",
+        "shift_day": "Friday",
+        "shift_time": "Evening",
+        "urgency": "emergency"
+      },
+      "language": "English",
+      "difficulty": "Medium",
+      "category": "emergency",
+      "success": true,
+      "inference_time": 2.309640407562256,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input. The user says, \"Anna can't work Friday evening, who can replace her?\" \n\nFirst, I need to extract the entities. The main entities here are Anna and the shift. Anna can't work on Friday evening, so shift_day is Friday, shift_time is evening. The shift_name is \"Friday evening\" if that's a shift. But wait, the user mentions \"replace her\", so maybe the shift is \"Friday evening\" and the replacement is needed. \n\nNext, the intent. The user is asking for someone to replace Anna, so the intent is likely \"emergency_replacement\". The other options like view_schedule or create_schedule don't fit here. \n\nNow, the entities. For employee_name, Anna is the name. Shift_day is Friday. Shift_time is evening. Optimization_preference? The user didn't mention anything about cost or preference, so maybe leave it as null. Time_period? The user is asking for who can replace, so maybe \"unknown\" here. Urgency is emergency, so set that to 1.0.\n\nMissing_info would be the entities that are not present. Here, all are present except maybe the shift_name, but the user says \"replace her\", so maybe shift_name is \"Friday evening\". So missing_info is empty. \n\nSuggested_question to get missing info? Since all entities are present, maybe leave it as null. Conversation_hint is a bit vague, so maybe leave it as null. \n\nPutting it all together, the JSON should have the intent, entities, confidence, missing info, suggested question, and conversation hint. Let me double-check each part. Yes, all seems correct.\n</think>\n\n{\n  \"intent\": \"emergency_replacement\",\n  \"entities\": {\n    \"employee_name\": \"Anna\",\n    \"shift_day\": \"Friday\",\n    \"shift_time\": \"Evening\",\n    \"shift_name\": \"Friday evening\",\n    \"optimization_preference\": null,\n    \"time_period\": \"unknown\",\n    \"urgency\": 1.0,\n    \"confidence\": 1.0,\n    \"missing_info\": [],\n    \"suggested_question\": \"who can replace her?\",\n    \"conversation_hint\": \"someone can replace her\"\n  }\n}",
+      "json_validity": false,
+      "parsed_json": {
+        "intent": "emergency_replacement",
+        "entities": {
+          "employee_name": "Anna",
+          "shift_day": "Friday",
+          "shift_time": "Evening",
+          "shift_name": "Friday evening",
+          "optimization_preference": null,
+          "time_period": "unknown",
+          "urgency": 1.0,
+          "confidence": 1.0,
+          "missing_info": [],
+          "suggested_question": "who can replace her?",
+          "conversation_hint": "someone can replace her"
+        }
+      },
+      "validation_error": "Missing required fields: ['confidence']",
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 8.600000000000001,
+      "memory_usage": 0.19999999999999574,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 1,
+      "input_query": "Sarah ist krank und kann morgen nicht arbeiten",
+      "expected_intent": "emergency_replacement",
+      "expected_entities": {
+        "employee_name": "Sarah",
+        "time_period": "tomorrow",
+        "urgency": "emergency"
+      },
+      "language": "German",
+      "difficulty": "Hard",
+      "category": "emergency",
+      "success": true,
+      "inference_time": 2.445392608642578,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input. The user says, \"Sarah ist krank und kann morgen nicht arbeiten.\" First, I need to extract the entities and determine the correct intent.\n\nThe first thing is to identify the entities. The name mentioned is Sarah. Then, looking at the time references, \"morgen\" means tomorrow. So shift_day should be \"tomorrow\". The shift_time is \"arbeit\" which translates to work, but the user is saying she can't work tomorrow. Wait, the original input is in German. So \"morgen\" is tomorrow, and \"kann morgen nicht arbeiten\" means she can't work tomorrow. So shift_time is \"morning\" or \"night\"? Wait, \"morgen\" is tomorrow, so maybe shift_time is \"morning\" or \"night\". But the user is saying she can't work, so maybe shift_time is \"morning\" or \"night\". But the exact shift name isn't mentioned. So shift_name is null.\n\nNext, the intent. The user is informing about Sarah's condition and her ability to work tomorrow. The intent is likely \"information\" since it's providing details about a schedule. The confidence is 0.0 as there's no additional info.\n\nMissing info fields: employee_name is Sarah, shift_day is tomorrow, shift_time is morning or night, shift_name is null, optimization_preference is null, time_period is tomorrow, urgency is null. So missing_info would be shift_time and shift_name. The suggested question to get missing info could be \"What is the shift time for Sarah?\" or similar. The conversation hint is that the user is providing info about her condition. So putting it all together, the JSON should have all these fields.\n</think>\n\n{\n  \"intent\": \"information\",\n  \"entities\": {\n    \"employee_name\": \"Sarah\",\n    \"shift_day\": \"tomorrow\",\n    \"shift_time\": \"morning\",\n    \"shift_name\": null,\n    \"optimization_preference\": null,\n    \"time_period\": \"tomorrow\",\n    \"urgency\": null\n  },\n  \"confidence\": 0.0,\n  \"missing_info\": [\"shift_name\", \"optimization_preference\"],\n  \"suggested_question\": \"What is the shift time for Sarah?\",\n  \"conversation_hint\": \"The user is providing information about Sarah's condition and her ability to work tomorrow.\"\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "information",
+        "entities": {
+          "employee_name": "Sarah",
+          "shift_day": "tomorrow",
+          "shift_time": "morning",
+          "shift_name": null,
+          "optimization_preference": null,
+          "time_period": "tomorrow",
+          "urgency": null
+        },
+        "confidence": 0.0,
+        "missing_info": [
+          "shift_name",
+          "optimization_preference"
+        ],
+        "suggested_question": "What is the shift time for Sarah?",
+        "conversation_hint": "The user is providing information about Sarah's condition and her ability to work tomorrow."
+      },
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "different",
+      "entity_accuracy": {
+        "total_expected": 3,
+        "total_extracted": 4,
+        "correct_extractions": 2,
+        "missing_entities": [
+          "urgency"
+        ],
+        "extra_entities": [
+          "shift_day",
+          "shift_time"
+        ],
+        "incorrect_values": [],
+        "accuracy_score": 0.6666666666666666
+      },
+      "confidence_score": 0.0,
+      "cpu_usage": 20.5,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 2,
+      "input_query": "Jean-Pierre ne peut pas venir dimanche matin",
+      "expected_intent": "emergency_replacement",
+      "expected_entities": {
+        "employee_name": "Jean-Pierre",
+        "shift_day": "Sunday",
+        "shift_time": "Morning",
+        "urgency": "emergency"
+      },
+      "language": "French",
+      "difficulty": "Hard",
+      "category": "emergency",
+      "success": true,
+      "inference_time": 1.5220355987548828,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input. The user says, \"Jean-Pierre ne peut pas venir dimanche matin.\" First, I need to extract the entities and determine the intent.\n\nThe main person here is Jean-Pierre. The time is Sunday morning. So shift_day should be Sunday, shift_time Morning. The optimization_preference isn't mentioned, so maybe leave it as null. The time_period is today, and urgency is emergency. \n\nNow, checking the intent. The user is informing about a shift not being available, so the intent is \"information\" since it's about a staff's availability. The entities are properly extracted. The confidence is 1.0 as there's no missing info. Missing info list is empty. The suggested question would be to confirm the shift details. The conversation hint is just the context provided. All fields are filled, so the JSON should look correct.\n</think>\n\n{\n  \"intent\": \"information\",\n  \"entities\": {\n    \"employee_name\": \"Jean-Pierre\",\n    \"shift_day\": \"Sunday\",\n    \"shift_time\": \"Morning\",\n    \"shift_name\": null,\n    \"optimization_preference\": null,\n    \"time_period\": \"today\",\n    \"urgency\": \"emergency\"\n  },\n  \"confidence\": 1.0,\n  \"missing_info\": [],\n  \"suggested_question\": \"Please confirm the shift details.\",\n  \"conversation_hint\": \"The user is informing about a shift not being available.\"\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "information",
+        "entities": {
+          "employee_name": "Jean-Pierre",
+          "shift_day": "Sunday",
+          "shift_time": "Morning",
+          "shift_name": null,
+          "optimization_preference": null,
+          "time_period": "today",
+          "urgency": "emergency"
+        },
+        "confidence": 1.0,
+        "missing_info": [],
+        "suggested_question": "Please confirm the shift details.",
+        "conversation_hint": "The user is informing about a shift not being available."
+      },
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "different",
+      "entity_accuracy": {
+        "total_expected": 4,
+        "total_extracted": 5,
+        "correct_extractions": 4,
+        "missing_entities": [],
+        "extra_entities": [
+          "time_period"
+        ],
+        "incorrect_values": [],
+        "accuracy_score": 1.0
+      },
+      "confidence_score": 1.0,
+      "cpu_usage": 13.3,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 3,
+      "input_query": "Marco non può lavorare martedì pomeriggio",
+      "expected_intent": "emergency_replacement",
+      "expected_entities": {
+        "employee_name": "Marco",
+        "shift_day": "Tuesday",
+        "shift_time": "Afternoon",
+        "urgency": "emergency"
+      },
+      "language": "Italian",
+      "difficulty": "Hard",
+      "category": "emergency",
+      "success": true,
+      "inference_time": 1.9866750240325928,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input. The user says, \"Marco non può lavorare martedì pomeriggio\". First, I need to extract the relevant information.\n\nThe main points here are Marco's inability to work on Wednesday afternoon. The entities involved are Marco (employee name) and the shift day and time. The shift day is Wednesday, and the time is afternoon. The user is indicating a shift that's not possible, so maybe there's an emergency or need for a replacement. \n\nLooking at the intent classification rules, \"view_schedule\" would be for showing current schedules, but here it's about Marco's availability. The user is providing information about a specific employee's shift, so the intent is likely \"information\" since it's listing available staff. \n\nFor the entities, employee_name is Marco. Shift_day is Wednesday, shift_time is afternoon. The optimization_preference isn't mentioned, so that's null. Time_period is today, and urgency is emergency. \n\nNow, checking the JSON structure. The user wants only valid JSON with the specified fields. All required fields are present except missing_info which is empty. The confidence is 0.0. The conversation_hint is left as null. The suggested_question is a clear question to get missing info, which isn't needed here. \n\nSo putting it all together, the JSON should have the intent as \"information\", entities with the correct fields, and all other fields as specified.\n</think>\n\n{\n  \"intent\": \"information\",\n  \"entities\": {\n    \"employee_name\": \"Marco\",\n    \"shift_day\": \"Wednesday\",\n    \"shift_time\": \"Afternoon\",\n    \"optimization_preference\": null,\n    \"time_period\": \"today\",\n    \"urgency\": \"emergency\",\n    \"confidence\": 0.0,\n    \"missing_info\": [],\n    \"suggested_question\": \"What is Marco's available shift on Wednesday afternoon?\",\n    \"conversation_hint\": \"Marco cannot work on Wednesday afternoon.\"\n  }\n}",
+      "json_validity": false,
+      "parsed_json": {
+        "intent": "information",
+        "entities": {
+          "employee_name": "Marco",
+          "shift_day": "Wednesday",
+          "shift_time": "Afternoon",
+          "optimization_preference": null,
+          "time_period": "today",
+          "urgency": "emergency",
+          "confidence": 0.0,
+          "missing_info": [],
+          "suggested_question": "What is Marco's available shift on Wednesday afternoon?",
+          "conversation_hint": "Marco cannot work on Wednesday afternoon."
+        }
+      },
+      "validation_error": "Missing required fields: ['confidence']",
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 18.0,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 4,
+      "input_query": "We need someone to cover the night shift tonight",
+      "expected_intent": "emergency_replacement",
+      "expected_entities": {
+        "shift_time": "Night",
+        "time_period": "today",
+        "urgency": "emergency"
+      },
+      "language": "English",
+      "difficulty": "Medium",
+      "category": "emergency",
+      "success": true,
+      "inference_time": 2.1467392444610596,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input. The user says, \"We need someone to cover the night shift tonight.\" \n\nFirst, I need to classify the intent. The key here is \"cover the night shift tonight.\" The intent seems to be about assigning a replacement, so it's likely \"emergency_replacement.\" \n\nNext, extracting entities. The employee name isn't mentioned, so maybe leave it as null. The shift day is \"night,\" which maps to \"night.\" The shift time is \"night,\" so shift_time is \"night.\" The shift_name isn't mentioned, so leave that as null. The optimization preference is not specified, so maybe leave it as null. The time_period is \"night,\" so shift_day is \"night.\" Urgency is \"emergency,\" so urgency is \"emergency.\" \n\nConfidence is 1.0 since it's a clear classification. Missing info would be the entities fields. Wait, the user input doesn't mention anything else, so the missing info list is just the entities fields. \n\nSuggested question could be asking for more details, like \"Could you provide the employee name and shift details?\" to get missing info. The conversation hint is a bit vague, so leave it as null. \n\nPutting it all together, the JSON should have the intent, entities, confidence, missing info, suggested question, and conversation hint. Let me double-check each part. Yes, everything seems to fit. The final JSON should look like the example provided, with all fields filled in.\n</think>\n\n{\n  \"intent\": \"emergency_replacement\",\n  \"entities\": {\n    \"employee_name\": null,\n    \"shift_day\": \"night\",\n    \"shift_time\": \"night\",\n    \"shift_name\": null,\n    \"optimization_preference\": null,\n    \"time_period\": \"night\",\n    \"urgency\": \"emergency\"\n  },\n  \"confidence\": 1.0,\n  \"missing_info\": [\"employee_name\", \"shift_name\", \"optimization_preference\", \"time_period\"],\n  \"suggested_question\": \"Could you provide the employee name and shift details?\",\n  \"conversation_hint\": null\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "emergency_replacement",
+        "entities": {
+          "employee_name": null,
+          "shift_day": "night",
+          "shift_time": "night",
+          "shift_name": null,
+          "optimization_preference": null,
+          "time_period": "night",
+          "urgency": "emergency"
+        },
+        "confidence": 1.0,
+        "missing_info": [
+          "employee_name",
+          "shift_name",
+          "optimization_preference",
+          "time_period"
+        ],
+        "suggested_question": "Could you provide the employee name and shift details?",
+        "conversation_hint": null
+      },
+      "validation_error": null,
+      "intent_match": true,
+      "intent_accuracy_type": "exact",
+      "entity_accuracy": {
+        "total_expected": 3,
+        "total_extracted": 4,
+        "correct_extractions": 1,
+        "missing_entities": [],
+        "extra_entities": [
+          "shift_day"
+        ],
+        "incorrect_values": [
+          {
+            "entity": "shift_time",
+            "expected": "Night",
+            "actual": "night"
+          },
+          {
+            "entity": "time_period",
+            "expected": "today",
+            "actual": "night"
+          }
+        ],
+        "accuracy_score": 0.3333333333333333
+      },
+      "confidence_score": 1.0,
+      "cpu_usage": 9.600000000000001,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 5,
+      "input_query": "Create next week's schedule optimizing for cost",
+      "expected_intent": "create_schedule",
+      "expected_entities": {
+        "time_period": "next_week",
+        "optimization_preference": "cost"
+      },
+      "language": "English",
+      "difficulty": "Easy",
+      "category": "creation",
+      "success": true,
+      "inference_time": 2.452091693878174,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input. The user says, \"Create next week's schedule optimizing for cost.\" \n\nFirst, I need to classify the intent. The options are view_schedule, emergency_replacement, create_schedule, modify_schedule, analyze_scenario, information, or unknown. The user is creating a schedule for next week, so \"create_schedule\" seems right. \n\nNext, the entities. The user mentions \"next week's schedule\" and \"optimizing for cost.\" So shift_day would be \"next_week\" and optimization_preference is \"cost\". Time_period is \"next_week\". \n\nNow, the entities. The user didn't mention any employee names, so employee_name is null. Shift_time isn't specified, so that's null. Shift_name isn't mentioned. Urgency isn't specified, so that's null. \n\nConfidence is 1.0 since everything seems to fit. Missing info is the list of required fields. The user input has all the necessary fields except maybe \"urgency\" and \"shift_name\". Wait, the user input says \"optimizing for cost\", which is the preference, so that's covered. So missing info is [\"urgency\", \"shift_name\"]? Wait, no, the user didn't mention shift_name, so it's missing. So the missing info array is [\"urgency\", \"shift_name\"].\n\nSuggested question: The user wants to create the schedule, so maybe \"What is the next week's schedule optimized for cost?\" to get the missing info. \n\nConversation hint: The user is creating a schedule, so maybe \"Provide details about the next week's schedule and optimization preferences.\" \n\nPutting it all together, the JSON should have the intent, entities with the fields, confidence, missing info, suggested question, and conversation hint.\n</think>\n\n{\n  \"intent\": \"create_schedule\",\n  \"entities\": {\n    \"employee_name\": null,\n    \"shift_day\": \"next_week\",\n    \"shift_time\": null,\n    \"shift_name\": null,\n    \"optimization_preference\": \"cost\",\n    \"time_period\": \"next_week\",\n    \"urgency\": null\n  },\n  \"confidence\": 1.0,\n  \"missing_info\": [\"shift_name\", \"urgency\"],\n  \"suggested_question\": \"What is the next week's schedule optimized for cost?\",\n  \"conversation_hint\": \"Provide details about the next week's schedule and optimization preferences.\"\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "create_schedule",
+        "entities": {
+          "employee_name": null,
+          "shift_day": "next_week",
+          "shift_time": null,
+          "shift_name": null,
+          "optimization_preference": "cost",
+          "time_period": "next_week",
+          "urgency": null
+        },
+        "confidence": 1.0,
+        "missing_info": [
+          "shift_name",
+          "urgency"
+        ],
+        "suggested_question": "What is the next week's schedule optimized for cost?",
+        "conversation_hint": "Provide details about the next week's schedule and optimization preferences."
+      },
+      "validation_error": null,
+      "intent_match": true,
+      "intent_accuracy_type": "exact",
+      "entity_accuracy": {
+        "total_expected": 2,
+        "total_extracted": 3,
+        "correct_extractions": 2,
+        "missing_entities": [],
+        "extra_entities": [
+          "shift_day"
+        ],
+        "incorrect_values": [],
+        "accuracy_score": 1.0
+      },
+      "confidence_score": 1.0,
+      "cpu_usage": 20.0,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 6,
+      "input_query": "Build a schedule that makes employees happy",
+      "expected_intent": "create_schedule",
+      "expected_entities": {
+        "optimization_preference": "preference"
+      },
+      "language": "English",
+      "difficulty": "Medium",
+      "category": "creation",
+      "success": true,
+      "inference_time": 1.8655495643615723,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input \"Build a schedule that makes employees happy\". First, I need to classify the intent. The user is asking to build a schedule, but they also mention making employees happy. The intent here is likely \"create_schedule\" because they're planning or building a schedule. \n\nNext, the entities. The user mentions building a schedule, so shift_day, shift_time, and possibly others. But there's no specific employee name or shift details. So the entities would be empty except for the intent. \n\nConfidence is 1.0 since it's a clear intent. Missing info is the list of required fields, which in this case are employee_name, shift_day, shift_time, shift_name, optimization_preference, time_period, urgency. But since the user input doesn't mention any of these, the missing info array is those fields. \n\nSuggested question could be \"What is the optimal shift schedule for employees?\" to get missing info. Conversation hint is a bit vague, so null. \n\nPutting it all together, the JSON should have the intent, entities as empty, confidence, missing info as the list, and the suggested question. Make sure to format it correctly without extra text.\n</think>\n\n{\n  \"intent\": \"create_schedule\",\n  \"entities\": {\n    \"employee_name\": null,\n    \"shift_day\": null,\n    \"shift_time\": null,\n    \"shift_name\": null,\n    \"optimization_preference\": null,\n    \"time_period\": null,\n    \"urgency\": null\n  },\n  \"confidence\": 1.0,\n  \"missing_info\": [\"employee_name\", \"shift_day\", \"shift_time\", \"shift_name\", \"optimization_preference\", \"time_period\", \"urgency\"],\n  \"suggested_question\": \"What is the optimal shift schedule for employees?\",\n  \"conversation_hint\": null\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "create_schedule",
+        "entities": {
+          "employee_name": null,
+          "shift_day": null,
+          "shift_time": null,
+          "shift_name": null,
+          "optimization_preference": null,
+          "time_period": null,
+          "urgency": null
+        },
+        "confidence": 1.0,
+        "missing_info": [
+          "employee_name",
+          "shift_day",
+          "shift_time",
+          "shift_name",
+          "optimization_preference",
+          "time_period",
+          "urgency"
+        ],
+        "suggested_question": "What is the optimal shift schedule for employees?",
+        "conversation_hint": null
+      },
+      "validation_error": null,
+      "intent_match": true,
+      "intent_accuracy_type": "exact",
+      "entity_accuracy": {
+        "total_expected": 1,
+        "total_extracted": 0,
+        "correct_extractions": 0,
+        "missing_entities": [
+          "optimization_preference"
+        ],
+        "extra_entities": [],
+        "incorrect_values": [],
+        "accuracy_score": 0.0
+      },
+      "confidence_score": 1.0,
+      "cpu_usage": 15.3,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 7,
+      "input_query": "Erstelle einen Schichtplan für nächste Woche",
+      "expected_intent": "create_schedule",
+      "expected_entities": {
+        "time_period": "next_week"
+      },
+      "language": "German",
+      "difficulty": "Medium",
+      "category": "creation",
+      "success": true,
+      "inference_time": 1.5794997215270996,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input \"Erstelle einen Schichtplan für nächste Woche\". First, I need to extract the relevant information into structured JSON according to the given rules.\n\nThe user wants to create a schedule for the next week. So the intent is \"create_schedule\". Now, looking at the entities. The input mentions \"Erstelle\" which translates to \"create\", so that's the intent. \n\nFor the entities, the user hasn't provided specific details like the employee name, shift details, etc. The input is general, so I should leave those fields as null. The time_period is \"next_week\" since it's the next week. The urgency is not mentioned, so it's null. \n\nI need to check if all required fields are present. The entities have the necessary fields, so no missing info. The confidence is 0.0 as there's no additional information. The conversation hint is left blank. Finally, the JSON should only include the valid fields and not include any extra text.\n</think>\n\n{\n  \"intent\": \"create_schedule\",\n  \"entities\": {\n    \"employee_name\": null,\n    \"shift_day\": null,\n    \"shift_time\": null,\n    \"shift_name\": null,\n    \"optimization_preference\": null,\n    \"time_period\": \"next_week\",\n    \"urgency\": null\n  },\n  \"confidence\": 0.0,\n  \"missing_info\": [],\n  \"suggested_question\": \"Could you provide the employee name and shift details?\",\n  \"conversation_hint\": \"\"\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "create_schedule",
+        "entities": {
+          "employee_name": null,
+          "shift_day": null,
+          "shift_time": null,
+          "shift_name": null,
+          "optimization_preference": null,
+          "time_period": "next_week",
+          "urgency": null
+        },
+        "confidence": 0.0,
+        "missing_info": [],
+        "suggested_question": "Could you provide the employee name and shift details?",
+        "conversation_hint": ""
+      },
+      "validation_error": null,
+      "intent_match": true,
+      "intent_accuracy_type": "exact",
+      "entity_accuracy": {
+        "total_expected": 1,
+        "total_extracted": 1,
+        "correct_extractions": 1,
+        "missing_entities": [],
+        "extra_entities": [],
+        "incorrect_values": [],
+        "accuracy_score": 1.0
+      },
+      "confidence_score": 0.0,
+      "cpu_usage": 12.600000000000001,
+      "memory_usage": 0.10000000000000142,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 8,
+      "input_query": "Générer un planning équilibré pour cette semaine",
+      "expected_intent": "create_schedule",
+      "expected_entities": {
+        "time_period": "this_week",
+        "optimization_preference": "balanced"
+      },
+      "language": "French",
+      "difficulty": "Hard",
+      "category": "creation",
+      "success": true,
+      "inference_time": 1.8754379749298096,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input \"Générer un planning équilibré pour cette semaine\". First, I need to extract the relevant information.\n\nThe user wants to generate a balanced schedule for the week. The intent here is clear: they need a schedule, so the intent should be \"create_schedule\". \n\nNow, looking at the entities. The user mentions \"plan\" and \"equilibré\" (balanced), so shift_name and optimization_preference are likely \"balanced\" and \"cost\". Time_period is \"this_week\" since it's a week. Shift_day is Monday, but wait, the user says \"pour cette semaine\", which is the week, so shift_day should be Monday. \n\nWait, the user's input is in French, so \"Monday\" is correct. Shift_time is \"Morning\" as it's a balanced schedule. \n\nNow, check for any missing fields. The user didn't mention any other details, so the entities should be filled. The confidence is 1.0 since everything seems to fit. \n\nMissing_info is empty. The suggested question might be \"What is the balanced schedule for this week?\" to get the missing info. The conversation hint is just the context provided. \n\nPutting it all together, the JSON should have all these fields correctly filled.\n</think>\n\n{\n  \"intent\": \"create_schedule\",\n  \"entities\": {\n    \"employee_name\": null,\n    \"shift_day\": \"Monday\",\n    \"shift_time\": \"Morning\",\n    \"shift_name\": \"balanced\",\n    \"optimization_preference\": \"cost\",\n    \"time_period\": \"this_week\",\n    \"urgency\": null,\n    \"confidence\": 1.0,\n    \"missing_info\": [],\n    \"suggested_question\": \"What is the balanced schedule for this week?\",\n    \"conversation_hint\": \"This week's schedule is being generated.\"\n  }\n}",
+      "json_validity": false,
+      "parsed_json": {
+        "intent": "create_schedule",
+        "entities": {
+          "employee_name": null,
+          "shift_day": "Monday",
+          "shift_time": "Morning",
+          "shift_name": "balanced",
+          "optimization_preference": "cost",
+          "time_period": "this_week",
+          "urgency": null,
+          "confidence": 1.0,
+          "missing_info": [],
+          "suggested_question": "What is the balanced schedule for this week?",
+          "conversation_hint": "This week's schedule is being generated."
+        }
+      },
+      "validation_error": "Missing required fields: ['confidence']",
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 9,
+      "input_query": "List all available employees",
+      "expected_intent": "information",
+      "expected_entities": {},
+      "language": "English",
+      "difficulty": "Easy",
+      "category": "information",
+      "success": true,
+      "inference_time": 2.1852641105651855,
+      "raw_output": "<think>\nOkay, let's see. The user input is \"List all available employees\". I need to parse this into structured JSON according to the given rules.\n\nFirst, the intent. The user is asking to list available employees, which fits the \"information\" intent because it's about providing general information about staff. \n\nNext, entities. The user mentions \"employees\", so employee_name should be extracted. But there's no specific name given, so maybe leave it as null. Shift_day, shift_time, shift_name, optimization_preference, time_period, urgency—none are mentioned, so those are all null. \n\nConfidence: the user didn't specify any details, so 0.0. Missing info is the list of required fields, which in this case would be employee_name, shift_day, shift_time, shift_name, optimization_preference, time_period, urgency. Wait, but the user input only mentions listing available employees, so maybe the missing info is those fields. \n\nSuggested question: The user wants to list available employees, so maybe the suggested question is \"What are the available employees?\" or leave it as null. \n\nConversation hint: The user's input is a general request, so maybe leave that as null. \n\nPutting it all together, the JSON should have the intent as \"information\", entities with the fields as null, confidence 0.0, missing info as the list, and the suggested question. Let me check again. Yes, that's correct.\n</think>\n\n{\n  \"intent\": \"information\",\n  \"entities\": {\n    \"employee_name\": null,\n    \"shift_day\": null,\n    \"shift_time\": null,\n    \"shift_name\": null,\n    \"optimization_preference\": null,\n    \"time_period\": null,\n    \"urgency\": null\n  },\n  \"confidence\": 0.0,\n  \"missing_info\": [\"employee_name\", \"shift_day\", \"shift_time\", \"shift_name\", \"optimization_preference\", \"time_period\", \"urgency\"],\n  \"suggested_question\": \"What are the available employees?\",\n  \"conversation_hint\": \"The user is asking to list available employees, which is a general request for information.\"\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "information",
+        "entities": {
+          "employee_name": null,
+          "shift_day": null,
+          "shift_time": null,
+          "shift_name": null,
+          "optimization_preference": null,
+          "time_period": null,
+          "urgency": null
+        },
+        "confidence": 0.0,
+        "missing_info": [
+          "employee_name",
+          "shift_day",
+          "shift_time",
+          "shift_name",
+          "optimization_preference",
+          "time_period",
+          "urgency"
+        ],
+        "suggested_question": "What are the available employees?",
+        "conversation_hint": "The user is asking to list available employees, which is a general request for information."
+      },
+      "validation_error": null,
+      "intent_match": true,
+      "intent_accuracy_type": "exact",
+      "entity_accuracy": {
+        "total_expected": 0,
+        "total_extracted": 0,
+        "correct_extractions": 0,
+        "missing_entities": [],
+        "extra_entities": [],
+        "incorrect_values": [],
+        "accuracy_score": 1.0
+      },
+      "confidence_score": 0.0,
+      "cpu_usage": 9.0,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 10,
+      "input_query": "Show me the staff with training in bartending",
+      "expected_intent": "information",
+      "expected_entities": {},
+      "language": "English",
+      "difficulty": "Medium",
+      "category": "information",
+      "success": true,
+      "inference_time": 2.1245715618133545,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input. The user says, \"Show me the staff with training in bartending.\" \n\nFirst, I need to determine the intent. The key here is \"Show me the staff...\" which points towards viewing a schedule. The other part mentions training in bartending, which might indicate a preference or a specific need. But the main intent is to show the staff, so the intent should be \"view_schedule\".\n\nNext, entities. The user is asking for staff, so \"employee_name\" is extracted. The mention of training in bartending might suggest a preference, so \"optimization_preference\" could be set to \"training\". However, the exact shift details aren't mentioned, so maybe \"shift_name\" is null. Time period isn't specified, so \"time_period\" remains null. Urgency isn't mentioned, so that's also null.\n\nConfidence is 1.0 since everything seems to fit. Missing info is a list of required fields. The user didn't mention any other details, so missing_info is [\"shift_day\", \"shift_time\", \"shift_name\", \"time_period\", \"urgency\"]. \n\nSuggested question to get missing info could be asking for shift details. Conversation hint is a brief context, so maybe \"Provide more details about the shift or time period.\" \n\nPutting it all together, the JSON should have all these fields correctly filled. Let me double-check each part against the rules and ensure no errors.\n</think>\n\n{\n  \"intent\": \"view_schedule\",\n  \"entities\": {\n    \"employee_name\": \"Sarah Mueller\",\n    \"shift_day\": null,\n    \"shift_time\": null,\n    \"shift_name\": null,\n    \"optimization_preference\": \"training\",\n    \"time_period\": \"this_week\",\n    \"urgency\": null\n  },\n  \"confidence\": 1.0,\n  \"missing_info\": [\"shift_day\", \"shift_time\", \"shift_name\", \"time_period\", \"urgency\"],\n  \"suggested_question\": \"Please provide the shift details or time period.\",\n  \"conversation_hint\": \"Provide more details about the shift or time period.\"\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "view_schedule",
+        "entities": {
+          "employee_name": "Sarah Mueller",
+          "shift_day": null,
+          "shift_time": null,
+          "shift_name": null,
+          "optimization_preference": "training",
+          "time_period": "this_week",
+          "urgency": null
+        },
+        "confidence": 1.0,
+        "missing_info": [
+          "shift_day",
+          "shift_time",
+          "shift_name",
+          "time_period",
+          "urgency"
+        ],
+        "suggested_question": "Please provide the shift details or time period.",
+        "conversation_hint": "Provide more details about the shift or time period."
+      },
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "different",
+      "entity_accuracy": {
+        "total_expected": 0,
+        "total_extracted": 3,
+        "correct_extractions": 0,
+        "missing_entities": [],
+        "extra_entities": [
+          "employee_name",
+          "optimization_preference",
+          "time_period"
+        ],
+        "incorrect_values": [],
+        "accuracy_score": 0.0
+      },
+      "confidence_score": 1.0,
+      "cpu_usage": 16.6,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 11,
+      "input_query": "Wer ist heute verfügbar?",
+      "expected_intent": "information",
+      "expected_entities": {
+        "time_period": "today"
+      },
+      "language": "German",
+      "difficulty": "Medium",
+      "category": "information",
+      "success": true,
+      "inference_time": 2.6556577682495117,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input \"Wer ist heute verfügbar?\" which translates to \"Who is available today?\".\n\nFirst, I need to classify the intent. The user is asking about available staff, so the intent is \"information\" because it's listing available staff. \n\nNext, extracting entities. The user is asking about availability, so shift_day should be \"today\". The shift_time is \"today\" as well. But wait, the input is in German, so shift_day is \"today\". The shift_name isn't mentioned, so that's null. The optimization_preference isn't specified, so that's null. Time_period is \"today\". Urgency is not mentioned, so that's null.\n\nNow, check if all required fields are present. The entities have all the necessary fields except maybe shift_name and optimization_preference. Wait, the user didn't mention the shift name, so shift_name is null. Same with optimization_preference. So the entities should be:\n\n{\n  \"intent\": \"information\",\n  \"entities\": {\n    \"employee_name\": null,\n    \"shift_day\": \"today\",\n    \"shift_time\": \"today\",\n    \"shift_name\": null,\n    \"optimization_preference\": null,\n    \"time_period\": \"today\",\n    \"urgency\": null\n  },\n  \"confidence\": 1.0,\n  \"missing_info\": [\"employee_name\", \"shift_name\", \"optimization_preference\"],\n  \"suggested_question\": \"Could you specify the shift name and optimization preference?\",\n  \"conversation_hint\": \"The user is asking about available staff today.\"\n}\n\nWait, but the user input is \"Wer ist heute verfügbar?\" which is asking about availability, so the intent is \"information\" as mentioned. The entities are extracted correctly. The missing info fields are employee_name, shift_name, optimization_preference. So the JSON should include those. Also, the confidence is 1.0 since all fields are present. The suggested question is to get missing info, which is the above. The conversation hint is helpful context.\n</think>\n\n{\n  \"intent\": \"information\",\n  \"entities\": {\n    \"employee_name\": null,\n    \"shift_day\": \"today\",\n    \"shift_time\": \"today\",\n    \"shift_name\": null,\n    \"optimization_preference\": null,\n    \"time_period\": \"today\",\n    \"urgency\": null\n  },\n  \"confidence\": 1.0,\n  \"missing_info\": [\"employee_name\", \"shift_name\", \"optimization_preference\"],\n  \"suggested_question\": \"Could you specify the shift name and optimization preference?\",\n  \"conversation_hint\": \"The user is asking about available staff today.\"\n}",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": "Invalid JSON: Extra data: line 18 column 1 (char 503)",
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 10.5,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 12,
+      "input_query": "Show me who's working this weekend",
+      "expected_intent": "view_schedule",
+      "expected_entities": {
+        "time_period": "this_week"
+      },
+      "language": "English",
+      "difficulty": "Easy",
+      "category": "view",
+      "success": true,
+      "inference_time": 2.0840260982513428,
+      "raw_output": "<think>\nOkay, let's tackle this user input. The user says, \"Show me who's working this weekend.\" First, I need to parse this into structured JSON according to the given rules.\n\nStarting with the intent. The phrase \"Show me\" suggests that the user wants information about the schedule. The intent should be \"view_schedule\" because it's about displaying or checking the current schedule.\n\nNext, entities. The user mentions \"who's working this weekend.\" So, the shift_day should be \"Saturday\" since it's the weekend. The shift_time isn't specified, so leave that as null. The shift_name isn't mentioned, so that's also null. The optimization_preference isn't mentioned, so leave that as null. Time_period is \"this_week\" as they want info for the current week. Urgency is not specified, so leave that as null.\n\nConfidence is 0.0 since there's no additional information to confirm or deny the classification. Missing info would be the entities I extracted. Wait, the user didn't mention any other details, so the missing info list is just the entities. Then, the suggested question to get missing info would be \"What is the schedule for this week?\" to prompt for the shift_day and time_period. The conversation hint is a bit vague, so leave it as null.\n\nPutting it all together, the JSON should have all these fields. Let me double-check each part. Yes, that's correct. No errors here.\n</think>\n\n{\n  \"intent\": \"view_schedule\",\n  \"entities\": {\n    \"employee_name\": null,\n    \"shift_day\": \"Saturday\",\n    \"shift_time\": null,\n    \"shift_name\": null,\n    \"optimization_preference\": null,\n    \"time_period\": \"this_week\",\n    \"urgency\": null\n  },\n  \"confidence\": 0.0,\n  \"missing_info\": [\"employee_name\", \"shift_name\", \"optimization_preference\", \"time_period\", \"urgency\"],\n  \"suggested_question\": \"What is the schedule for this week?\",\n  \"conversation_hint\": null\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "view_schedule",
+        "entities": {
+          "employee_name": null,
+          "shift_day": "Saturday",
+          "shift_time": null,
+          "shift_name": null,
+          "optimization_preference": null,
+          "time_period": "this_week",
+          "urgency": null
+        },
+        "confidence": 0.0,
+        "missing_info": [
+          "employee_name",
+          "shift_name",
+          "optimization_preference",
+          "time_period",
+          "urgency"
+        ],
+        "suggested_question": "What is the schedule for this week?",
+        "conversation_hint": null
+      },
+      "validation_error": null,
+      "intent_match": true,
+      "intent_accuracy_type": "exact",
+      "entity_accuracy": {
+        "total_expected": 1,
+        "total_extracted": 2,
+        "correct_extractions": 1,
+        "missing_entities": [],
+        "extra_entities": [
+          "shift_day"
+        ],
+        "incorrect_values": [],
+        "accuracy_score": 1.0
+      },
+      "confidence_score": 0.0,
+      "cpu_usage": 12.8,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 13,
+      "input_query": "What's the current schedule for Monday?",
+      "expected_intent": "view_schedule",
+      "expected_entities": {
+        "shift_day": "Monday"
+      },
+      "language": "English",
+      "difficulty": "Easy",
+      "category": "view",
+      "success": true,
+      "inference_time": 1.5174081325531006,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input. The user says, \"What's the current schedule for Monday?\" \n\nFirst, I need to classify the intent. The intent is \"view_schedule\" because it's asking for the current schedule. So the first field is set to that.\n\nNext, the entities. The user mentions Monday, so shift_day should be \"Monday\". The time_period is \"this_week\" since it's asking about the current schedule on Monday. The shift_day is Monday, and there's no mention of time or shift name, so those are left as null. The optimization_preference and urgency are also null. The missing_info list is empty here. The suggested question to get missing info is \"What's the current schedule for Monday?\" but that's the same as the input, so maybe leave it as null. The conversation hint is a bit vague, so leave it as null. All fields are filled, so the JSON should look like that.\n</think>\n\n{\n  \"intent\": \"view_schedule\",\n  \"entities\": {\n    \"employee_name\": null,\n    \"shift_day\": \"Monday\",\n    \"shift_time\": null,\n    \"shift_name\": null,\n    \"optimization_preference\": null,\n    \"time_period\": \"this_week\",\n    \"urgency\": null,\n    \"confidence\": 1.0,\n    \"missing_info\": [],\n    \"suggested_question\": \"What's the current schedule for Monday?\",\n    \"conversation_hint\": null\n  }\n}",
+      "json_validity": false,
+      "parsed_json": {
+        "intent": "view_schedule",
+        "entities": {
+          "employee_name": null,
+          "shift_day": "Monday",
+          "shift_time": null,
+          "shift_name": null,
+          "optimization_preference": null,
+          "time_period": "this_week",
+          "urgency": null,
+          "confidence": 1.0,
+          "missing_info": [],
+          "suggested_question": "What's the current schedule for Monday?",
+          "conversation_hint": null
+        }
+      },
+      "validation_error": "Missing required fields: ['confidence']",
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 14,
+      "input_query": "Mostra il turno di domani sera",
+      "expected_intent": "view_schedule",
+      "expected_entities": {
+        "time_period": "tomorrow",
+        "shift_time": "Evening"
+      },
+      "language": "Italian",
+      "difficulty": "Hard",
+      "category": "view",
+      "success": true,
+      "inference_time": 1.936439037322998,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input \"Mostra il turno di domani sera\". First, I need to extract the relevant information. The user wants to show the schedule for tomorrow night.\n\nLooking at the intent classification, \"view_schedule\" seems right because it's about showing or displaying a schedule. So the intent is \"view_schedule\".\n\nNow, for the entities. The user mentions \"turno di domani sera\", which translates to \"tomorrow's schedule\". So shift_day should be \"tomorrow\". The time is \"sera\" which is night, so shift_time is \"Night\". \n\nNext, optimization_preference: the user hasn't specified anything, so maybe leave it as null. Time_period is \"tomorrow\" as mentioned. Urgency is not mentioned, so leave it as null.\n\nCheck if all required fields are present. The entities have all the necessary fields except maybe the missing_info. Wait, the user input doesn't mention any other details, so the missing_info list should be empty. The suggested question might be \"What is the schedule for tomorrow night?\" to get missing info. The conversation hint is just the context, so leave that as null.\n\nPutting it all together, the JSON should have the intent, entities with all fields, confidence as 1.0, missing_info as empty, and the suggested question. No other text, just the JSON.\n</think>\n\n{\n  \"intent\": \"view_schedule\",\n  \"entities\": {\n    \"employee_name\": null,\n    \"shift_day\": \"tomorrow\",\n    \"shift_time\": \"Night\",\n    \"shift_name\": null,\n    \"optimization_preference\": null,\n    \"time_period\": \"tomorrow\",\n    \"urgency\": null\n  },\n  \"confidence\": 1.0,\n  \"missing_info\": [],\n  \"suggested_question\": \"What is the schedule for tomorrow night?\",\n  \"conversation_hint\": null\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "view_schedule",
+        "entities": {
+          "employee_name": null,
+          "shift_day": "tomorrow",
+          "shift_time": "Night",
+          "shift_name": null,
+          "optimization_preference": null,
+          "time_period": "tomorrow",
+          "urgency": null
+        },
+        "confidence": 1.0,
+        "missing_info": [],
+        "suggested_question": "What is the schedule for tomorrow night?",
+        "conversation_hint": null
+      },
+      "validation_error": null,
+      "intent_match": true,
+      "intent_accuracy_type": "exact",
+      "entity_accuracy": {
+        "total_expected": 2,
+        "total_extracted": 3,
+        "correct_extractions": 1,
+        "missing_entities": [],
+        "extra_entities": [
+          "shift_day"
+        ],
+        "incorrect_values": [
+          {
+            "entity": "shift_time",
+            "expected": "Evening",
+            "actual": "Night"
+          }
+        ],
+        "accuracy_score": 0.5
+      },
+      "confidence_score": 1.0,
+      "cpu_usage": 13.900000000000002,
+      "memory_usage": 0.10000000000000142,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 15,
+      "input_query": "Move Sarah from Monday morning to Tuesday afternoon",
+      "expected_intent": "modify_schedule",
+      "expected_entities": {
+        "employee_name": "Sarah",
+        "shift_day": "Monday",
+        "shift_time": "Morning"
+      },
+      "language": "English",
+      "difficulty": "Hard",
+      "category": "modification",
+      "success": true,
+      "inference_time": 1.65024995803833,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input. The user says, \"Move Sarah from Monday morning to Tuesday afternoon.\" \n\nFirst, I need to extract the entities. The main person here is Sarah. So employee_name should be \"Sarah\". The shift_day is Monday, and the shift_time is morning. The shift_name isn't mentioned, so maybe leave that as null. The time_period is this_week, and the urgency is emergency since it's moving her.\n\nNow, checking the intent. The action is moving a person between two shifts, which fits the \"modify_schedule\" intent. The other options like view_schedule or create_schedule don't apply here. \n\nConfidence is 1.0 since it's a clear action. Missing info would be shift_name and time_period. The conversation hint is needed, so maybe \"Provide the shift name and time period for confirmation.\" \n\nPutting it all together, the JSON should have all the fields correctly filled. Let me double-check each part against the rules and ensure no missing fields are present.\n</think>\n\n{\n  \"intent\": \"modify_schedule\",\n  \"entities\": {\n    \"employee_name\": \"Sarah\",\n    \"shift_day\": \"Monday\",\n    \"shift_time\": \"Morning\",\n    \"shift_name\": null,\n    \"optimization_preference\": null,\n    \"time_period\": \"this_week\",\n    \"urgency\": \"emergency\",\n    \"confidence\": 1.0,\n    \"missing_info\": [\"shift_name\"],\n    \"suggested_question\": \"Please provide the shift name and time period for confirmation\",\n    \"conversation_hint\": \"Provide the shift name and time period for confirmation\"\n  }\n}",
+      "json_validity": false,
+      "parsed_json": {
+        "intent": "modify_schedule",
+        "entities": {
+          "employee_name": "Sarah",
+          "shift_day": "Monday",
+          "shift_time": "Morning",
+          "shift_name": null,
+          "optimization_preference": null,
+          "time_period": "this_week",
+          "urgency": "emergency",
+          "confidence": 1.0,
+          "missing_info": [
+            "shift_name"
+          ],
+          "suggested_question": "Please provide the shift name and time period for confirmation",
+          "conversation_hint": "Provide the shift name and time period for confirmation"
+        }
+      },
+      "validation_error": "Missing required fields: ['confidence']",
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 16,
+      "input_query": "Swap Anna and Felix for Friday shifts",
+      "expected_intent": "modify_schedule",
+      "expected_entities": {
+        "employee_name": "Anna",
+        "shift_day": "Friday"
+      },
+      "language": "English",
+      "difficulty": "Hard",
+      "category": "modification",
+      "success": true,
+      "inference_time": 1.839017629623413,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input. The user says, \"Swap Anna and Felix for Friday shifts.\" \n\nFirst, I need to extract the entities. The main entities here are the employees involved, their names, the shift day, time, and any other relevant details. The user mentions swapping Anna and Felix, so those two names should be the employees. The shift day is Friday. The time is not specified, so maybe leave it as null. \n\nNext, the intent. The user is swapping shifts, which is a modification to the schedule. The intent should be \"modify_schedule\" because they're changing existing shifts. \n\nNow, checking the required fields. The user input doesn't mention anything else, so the missing info list should be empty. The entities are all extracted. The shift time is not specified, so shift_time remains null. \n\nConfidence is 1.0 since everything seems to fit. The conversation hint is needed if there's context, but there isn't. So, the JSON should have all the fields filled out. Let me double-check the rules again to make sure I didn't miss anything. Yep, everything looks good. Time_period is \"this_week\" since it's a swap for the current week. All entities and fields are correctly extracted.\n</think>\n\n{\n  \"intent\": \"modify_schedule\",\n  \"entities\": {\n    \"employee_name\": \"Anna, Felix\",\n    \"shift_day\": \"Friday\",\n    \"shift_time\": null,\n    \"optimization_preference\": null,\n    \"time_period\": \"this_week\",\n    \"urgency\": null\n  },\n  \"confidence\": 1.0,\n  \"missing_info\": [],\n  \"suggested_question\": \"What is the current schedule for Friday shifts?\",\n  \"conversation_hint\": \"The user is swapping Anna and Felix's shifts for Friday.\"\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "modify_schedule",
+        "entities": {
+          "employee_name": "Anna, Felix",
+          "shift_day": "Friday",
+          "shift_time": null,
+          "optimization_preference": null,
+          "time_period": "this_week",
+          "urgency": null
+        },
+        "confidence": 1.0,
+        "missing_info": [],
+        "suggested_question": "What is the current schedule for Friday shifts?",
+        "conversation_hint": "The user is swapping Anna and Felix's shifts for Friday."
+      },
+      "validation_error": null,
+      "intent_match": true,
+      "intent_accuracy_type": "exact",
+      "entity_accuracy": {
+        "total_expected": 2,
+        "total_extracted": 3,
+        "correct_extractions": 1,
+        "missing_entities": [],
+        "extra_entities": [
+          "time_period"
+        ],
+        "incorrect_values": [
+          {
+            "entity": "employee_name",
+            "expected": "Anna",
+            "actual": "Anna, Felix"
+          }
+        ],
+        "accuracy_score": 0.5
+      },
+      "confidence_score": 1.0,
+      "cpu_usage": 14.5,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 17,
+      "input_query": "What if we move Sarah from Monday morning to Tuesday afternoon?",
+      "expected_intent": "analyze_scenario",
+      "expected_entities": {
+        "employee_name": "Sarah",
+        "shift_day": "Monday",
+        "shift_time": "Morning"
+      },
+      "language": "English",
+      "difficulty": "Hard",
+      "category": "analysis",
+      "success": true,
+      "inference_time": 1.8218872547149658,
+      "raw_output": "<think>\nOkay, let's tackle this. The user input is \"What if we move Sarah from Monday morning to Tuesday afternoon?\" So first, I need to parse this into structured JSON according to the given rules.\n\nFirst, the intent. The user is asking about moving a shift, so the intent is likely \"analyze_scenario\" because it's about scenarios or alternatives. \n\nNext, entities. The employee is Sarah, so \"employee_name\" should be \"Sarah\". The shift day is Monday, and the time is morning. The shift name isn't mentioned, so maybe leave that as null. The shift time is afternoon, so shift_time is \"Afternoon\". The optimization preference isn't specified, so maybe leave that as null. Time period is this week, so \"time_period\" is \"this_week\". Urgency is not mentioned, so leave that as null.\n\nConfidence: All fields are present, so 1.0. Missing info is empty. Suggested question could be \"What is the current schedule for Sarah's shift?\" to get missing info. Conversation hint is needed, but the user didn't provide it, so maybe leave as null.\n\nPutting it all together, the JSON should have all the fields filled correctly. Let me double-check each part. Yes, that's correct.\n</think>\n\n{\n  \"intent\": \"analyze_scenario\",\n  \"entities\": {\n    \"employee_name\": \"Sarah\",\n    \"shift_day\": \"Monday\",\n    \"shift_time\": \"Morning\",\n    \"shift_name\": null,\n    \"optimization_preference\": null,\n    \"time_period\": \"this_week\",\n    \"urgency\": null\n  },\n  \"confidence\": 1.0,\n  \"missing_info\": [],\n  \"suggested_question\": \"What is the current schedule for Sarah's shift?\",\n  \"conversation_hint\": null\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "analyze_scenario",
+        "entities": {
+          "employee_name": "Sarah",
+          "shift_day": "Monday",
+          "shift_time": "Morning",
+          "shift_name": null,
+          "optimization_preference": null,
+          "time_period": "this_week",
+          "urgency": null
+        },
+        "confidence": 1.0,
+        "missing_info": [],
+        "suggested_question": "What is the current schedule for Sarah's shift?",
+        "conversation_hint": null
+      },
+      "validation_error": null,
+      "intent_match": true,
+      "intent_accuracy_type": "exact",
+      "entity_accuracy": {
+        "total_expected": 3,
+        "total_extracted": 4,
+        "correct_extractions": 3,
+        "missing_entities": [],
+        "extra_entities": [
+          "time_period"
+        ],
+        "incorrect_values": [],
+        "accuracy_score": 1.0
+      },
+      "confidence_score": 1.0,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 18,
+      "input_query": "Analyze the impact of adding an extra evening shift",
+      "expected_intent": "analyze_scenario",
+      "expected_entities": {
+        "shift_time": "Evening"
+      },
+      "language": "English",
+      "difficulty": "Hard",
+      "category": "analysis",
+      "success": true,
+      "inference_time": 2.2647712230682373,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input: \"Analyze the impact of adding an extra evening shift\". \n\nFirst, I need to determine the intent. The user is asking to analyze the impact of adding an evening shift. The intent here is to understand the effect of scheduling changes, so \"analyze_scenario\" seems right. \n\nNext, entities. The user mentions \"adding an extra evening shift\". So shift_day is \"Evening\", shift_time is \"Evening\". But wait, the shift_time is \"Evening\" but the options are Morning, Afternoon, Evening, Night. So shift_time should be \"Evening\". \n\nOptimization_preference: The user is analyzing the impact, so maybe \"preference\" here. Time_period: \"next_week\" since it's about adding an extra shift. Urgency: \"planned\" because it's a future shift. \n\nMissing info: The user didn't specify the shift name, so maybe leave that as null. Also, the shift_day is \"Evening\", which is covered. \n\nSuggested question: The user wants to analyze, so maybe \"What is the impact of adding an evening shift?\" to get missing info. \n\nConversation hint: The user is asking about an analysis, so maybe \"Provide the impact analysis of adding an evening shift.\" \n\nPutting it all together, the JSON should have the intent, entities, confidence, missing info, suggested question, and conversation hint. All fields are filled except maybe the missing info list. Let me check again. The user input doesn't mention any missing fields, so the missing_info array is empty. \n\nSo the final JSON should look like that.\n</think>\n\n{\n  \"intent\": \"analyze_scenario\",\n  \"entities\": {\n    \"employee_name\": null,\n    \"shift_day\": \"Evening\",\n    \"shift_time\": \"Evening\",\n    \"shift_name\": null,\n    \"optimization_preference\": \"preference\",\n    \"time_period\": \"next_week\",\n    \"urgency\": \"planned\",\n    \"confidence\": 1.0,\n    \"missing_info\": [],\n    \"suggested_question\": \"What is the impact of adding an evening shift?\",\n    \"conversation_hint\": \"Provide the impact analysis of adding an evening shift.\"\n  }\n}",
+      "json_validity": false,
+      "parsed_json": {
+        "intent": "analyze_scenario",
+        "entities": {
+          "employee_name": null,
+          "shift_day": "Evening",
+          "shift_time": "Evening",
+          "shift_name": null,
+          "optimization_preference": "preference",
+          "time_period": "next_week",
+          "urgency": "planned",
+          "confidence": 1.0,
+          "missing_info": [],
+          "suggested_question": "What is the impact of adding an evening shift?",
+          "conversation_hint": "Provide the impact analysis of adding an evening shift."
+        }
+      },
+      "validation_error": "Missing required fields: ['confidence']",
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 19,
+      "input_query": "Mike",
+      "expected_intent": "unknown",
+      "expected_entities": {
+        "employee_name": "Mike"
+      },
+      "language": "English",
+      "difficulty": "Hard",
+      "category": "edge",
+      "success": true,
+      "inference_time": 1.4532403945922852,
+      "raw_output": "<think>\nOkay, let's see. The user input is \"Mike\". I need to parse this into structured JSON according to the given rules.\n\nFirst, the intent. The user input is just \"Mike\", so the intent should be \"information\" because it's listing employees or general info. Then, entities. The employee name is Mike. Shift day, time, shift name, etc., but there's no mention of days, times, or shifts. So those fields are null. The confidence is 0.0 since it's a single entity. Missing info would be the entities fields. The suggested question could be asking for more details. The conversation hint is left as null. Let me check the rules again to make sure. Yep, all set. The JSON should only include the fields specified, no extra text.\n</think>\n\n{\n  \"intent\": \"information\",\n  \"entities\": {\n    \"employee_name\": \"Mike\",\n    \"shift_day\": null,\n    \"shift_time\": null,\n    \"shift_name\": null,\n    \"optimization_preference\": null,\n    \"time_period\": null,\n    \"urgency\": null\n  },\n  \"confidence\": 0.0,\n  \"missing_info\": [\"shift_day\", \"shift_time\", \"shift_name\", \"optimization_preference\", \"time_period\", \"urgency\"],\n  \"suggested_question\": \"Please provide the shift details or time period.\",\n  \"conversation_hint\": null\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "information",
+        "entities": {
+          "employee_name": "Mike",
+          "shift_day": null,
+          "shift_time": null,
+          "shift_name": null,
+          "optimization_preference": null,
+          "time_period": null,
+          "urgency": null
+        },
+        "confidence": 0.0,
+        "missing_info": [
+          "shift_day",
+          "shift_time",
+          "shift_name",
+          "optimization_preference",
+          "time_period",
+          "urgency"
+        ],
+        "suggested_question": "Please provide the shift details or time period.",
+        "conversation_hint": null
+      },
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "better",
+      "entity_accuracy": {
+        "total_expected": 1,
+        "total_extracted": 1,
+        "correct_extractions": 1,
+        "missing_entities": [],
+        "extra_entities": [],
+        "incorrect_values": [],
+        "accuracy_score": 1.0
+      },
+      "confidence_score": 0.0,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 20,
+      "input_query": "",
+      "expected_intent": "unknown",
+      "expected_entities": {},
+      "language": "English",
+      "difficulty": "Hard",
+      "category": "edge",
+      "success": true,
+      "inference_time": 1.1281936168670654,
+      "raw_output": "<think>\nOkay, let's see. The user input is empty, so I need to parse it into structured JSON according to the given rules. First, the intent. Since the input is empty, there's no content to parse, so the intent should be \"unknown\". Then, the entities. But there's nothing mentioned, so all fields are null. The confidence is 0.0, missing_info is an empty array, and the conversation hint is null. The question to suggest is empty. Let me check again. All fields are null except the intent and confidence. Yep, that's correct. So the JSON should look like that.\n</think>\n\n{\n  \"intent\": \"unknown\",\n  \"entities\": {\n    \"employee_name\": null,\n    \"shift_day\": null,\n    \"shift_time\": null,\n    \"shift_name\": null,\n    \"optimization_preference\": null,\n    \"time_period\": null,\n    \"urgency\": null\n  },\n  \"confidence\": 0.0,\n  \"missing_info\": [],\n  \"suggested_question\": \"\",\n  \"conversation_hint\": null\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "unknown",
+        "entities": {
+          "employee_name": null,
+          "shift_day": null,
+          "shift_time": null,
+          "shift_name": null,
+          "optimization_preference": null,
+          "time_period": null,
+          "urgency": null
+        },
+        "confidence": 0.0,
+        "missing_info": [],
+        "suggested_question": "",
+        "conversation_hint": null
+      },
+      "validation_error": null,
+      "intent_match": true,
+      "intent_accuracy_type": "exact",
+      "entity_accuracy": {
+        "total_expected": 0,
+        "total_extracted": 0,
+        "correct_extractions": 0,
+        "missing_entities": [],
+        "extra_entities": [],
+        "incorrect_values": [],
+        "accuracy_score": 1.0
+      },
+      "confidence_score": 0.0,
+      "cpu_usage": 7.199999999999999,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 21,
+      "input_query": "Anna-Maria kann nur sonntags von 8-16 Uhr mit Kellner-Fähigkeiten",
+      "expected_intent": "information",
+      "expected_entities": {
+        "employee_name": "Anna-Maria",
+        "shift_day": "Sunday"
+      },
+      "language": "German",
+      "difficulty": "Very Hard",
+      "category": "edge",
+      "success": true,
+      "inference_time": 1.7068326473236084,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input. The user says, \"Anna-Maria kann nur sonntags von 8-16 Uhr mit Kellner-Fähigkeiten\". First, I need to extract the entities and fields.\n\nThe main entity here is Anna-Maria. The shift is from 8-16 Uhr, which translates to morning to afternoon. The shift day is Sunday. The shift name is Kellner-Fähigkeiten, which is a job title. The optimization preference isn't mentioned, so maybe leave it as null. The time period is this week. Urgency isn't specified, so maybe leave it as null.\n\nNow, checking the intent. The user is asking about Anna-Maria's schedule, so the intent is \"information\". The entities are all extracted. The confidence is 1.0 since all fields are present. Missing info is empty. The suggested question would be to confirm if all info is present. The conversation hint is a bit vague, so leave it as null. Finally, format the JSON with the specified keys and values.\n</think>\n\n{\n  \"intent\": \"information\",\n  \"entities\": {\n    \"employee_name\": \"Anna-Maria\",\n    \"shift_day\": \"Sunday\",\n    \"shift_time\": \"Morning|Afternoon\",\n    \"shift_name\": \"Kellner-Fähigkeiten\",\n    \"optimization_preference\": null,\n    \"time_period\": \"this_week\",\n    \"urgency\": null\n  },\n  \"confidence\": 1.0,\n  \"missing_info\": [],\n  \"suggested_question\": \"Please confirm if all required fields are included.\",\n  \"conversation_hint\": null\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "information",
+        "entities": {
+          "employee_name": "Anna-Maria",
+          "shift_day": "Sunday",
+          "shift_time": "Morning|Afternoon",
+          "shift_name": "Kellner-Fähigkeiten",
+          "optimization_preference": null,
+          "time_period": "this_week",
+          "urgency": null
+        },
+        "confidence": 1.0,
+        "missing_info": [],
+        "suggested_question": "Please confirm if all required fields are included.",
+        "conversation_hint": null
+      },
+      "validation_error": null,
+      "intent_match": true,
+      "intent_accuracy_type": "exact",
+      "entity_accuracy": {
+        "total_expected": 2,
+        "total_extracted": 5,
+        "correct_extractions": 2,
+        "missing_entities": [],
+        "extra_entities": [
+          "shift_time",
+          "shift_name",
+          "time_period"
+        ],
+        "incorrect_values": [],
+        "accuracy_score": 1.0
+      },
+      "confidence_score": 1.0,
+      "cpu_usage": 5.699999999999999,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 22,
+      "input_query": "Help me with something",
+      "expected_intent": "unknown",
+      "expected_entities": {},
+      "language": "English",
+      "difficulty": "Medium",
+      "category": "edge",
+      "success": true,
+      "inference_time": 1.8854458332061768,
+      "raw_output": "<think>\nOkay, let's see. The user input is \"Help me with something\". I need to parse this into structured JSON according to the given rules.\n\nFirst, the intent. The user is asking for help, so the intent should be \"information\" because they want to list employees or show available staff. \n\nNext, entities. The user hasn't provided any specific details like names, shifts, or preferences. So, employee_name is null, shift_day, shift_time, shift_name, optimization_preference, time_period, urgency, and missing_info. The user's message is general, so all fields are missing. \n\nThe confidence is 0.0 since there's no specific information to confirm. Missing_info would list all the fields that are not present. The suggested question to get missing info could be \"Could you provide more details about the schedule?\" and the conversation hint is left blank. \n\nPutting it all together, the JSON should have the intent, entities with all fields as null, confidence, missing info, and the suggested question. No other text is needed.\n</think>\n\n{\n  \"intent\": \"information\",\n  \"entities\": {\n    \"employee_name\": null,\n    \"shift_day\": null,\n    \"shift_time\": null,\n    \"shift_name\": null,\n    \"optimization_preference\": null,\n    \"time_period\": null,\n    \"urgency\": null,\n    \"confidence\": 0.0,\n    \"missing_info\": [\"employee_name\", \"shift_day\", \"shift_time\", \"shift_name\", \"optimization_preference\", \"time_period\", \"urgency\"],\n    \"suggested_question\": \"Could you provide more details about the schedule?\",\n    \"conversation_hint\": \"\"\n  },\n  \"confidence\": 0.0,\n  \"missing_info\": [\"employee_name\", \"shift_day\", \"shift_time\", \"shift_name\", \"optimization_preference\", \"time_period\", \"urgency\"]\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "information",
+        "entities": {
+          "employee_name": null,
+          "shift_day": null,
+          "shift_time": null,
+          "shift_name": null,
+          "optimization_preference": null,
+          "time_period": null,
+          "urgency": null,
+          "confidence": 0.0,
+          "missing_info": [
+            "employee_name",
+            "shift_day",
+            "shift_time",
+            "shift_name",
+            "optimization_preference",
+            "time_period",
+            "urgency"
+          ],
+          "suggested_question": "Could you provide more details about the schedule?",
+          "conversation_hint": ""
+        },
+        "confidence": 0.0,
+        "missing_info": [
+          "employee_name",
+          "shift_day",
+          "shift_time",
+          "shift_name",
+          "optimization_preference",
+          "time_period",
+          "urgency"
+        ]
+      },
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "better",
+      "entity_accuracy": {
+        "total_expected": 0,
+        "total_extracted": 4,
+        "correct_extractions": 0,
+        "missing_entities": [],
+        "extra_entities": [
+          "confidence",
+          "missing_info",
+          "suggested_question",
+          "conversation_hint"
+        ],
+        "incorrect_values": [],
+        "accuracy_score": 0.0
+      },
+      "confidence_score": 0.0,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:0.6b",
+      "prompt_variant": "production",
+      "test_case_id": 23,
+      "input_query": "Schedule meeting for 3pm tomorrow",
+      "expected_intent": "unknown",
+      "expected_entities": {
+        "time_period": "tomorrow"
+      },
+      "language": "English",
+      "difficulty": "Medium",
+      "category": "edge",
+      "success": true,
+      "inference_time": 2.1293439865112305,
+      "raw_output": "<think>\nOkay, let's start by parsing the user input. The user says, \"Schedule meeting for 3pm tomorrow.\" First, I need to determine the intent. The term \"schedule\" here suggests that the user wants to create or set up a meeting time. The intent options include \"create_schedule\" or \"view_schedule\". Since they're scheduling a meeting, it's likely creating a schedule. So the intent is \"create_schedule\".\n\nNext, extracting entities. The user mentions a meeting at 3pm tomorrow. So shift_time is \"Afternoon\", shift_day is \"tomorrow\". The time_period is \"tomorrow\". The shift_name isn't mentioned, so that's null. The optimization_preference isn't specified, so that's also null. The urgency is \"planned\" because it's a scheduled event. \n\nNow, checking the JSON structure. The user wants only valid JSON with the specified fields. The entities should be in the correct format. The shift_day is \"tomorrow\", which is a valid option. The shift_time is \"Afternoon\". Time_period is \"tomorrow\". Urgency is \"planned\". All required fields are present except missing_info which would be empty here. The conversation_hint is a bit empty. \n\nI need to make sure there are no typos. The JSON should look like the example provided, with all fields filled. The confidence is 0.0, missing_info is an empty list, and the suggested question is a null. Everything checks out. So the final JSON should be as specified.\n</think>\n\n{\n  \"intent\": \"create_schedule\",\n  \"entities\": {\n    \"employee_name\": null,\n    \"shift_day\": \"tomorrow\",\n    \"shift_time\": \"Afternoon\",\n    \"shift_name\": null,\n    \"optimization_preference\": null,\n    \"time_period\": \"tomorrow\",\n    \"urgency\": \"planned\"\n  },\n  \"confidence\": 0.0,\n  \"missing_info\": [],\n  \"suggested_question\": \"What is the shift name?\",\n  \"conversation_hint\": \"Schedule a meeting for 3pm tomorrow.\"\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "create_schedule",
+        "entities": {
+          "employee_name": null,
+          "shift_day": "tomorrow",
+          "shift_time": "Afternoon",
+          "shift_name": null,
+          "optimization_preference": null,
+          "time_period": "tomorrow",
+          "urgency": "planned"
+        },
+        "confidence": 0.0,
+        "missing_info": [],
+        "suggested_question": "What is the shift name?",
+        "conversation_hint": "Schedule a meeting for 3pm tomorrow."
+      },
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "better",
+      "entity_accuracy": {
+        "total_expected": 1,
+        "total_extracted": 4,
+        "correct_extractions": 1,
+        "missing_entities": [],
+        "extra_entities": [
+          "shift_day",
+          "shift_time",
+          "urgency"
+        ],
+        "incorrect_values": [],
+        "accuracy_score": 1.0
+      },
+      "confidence_score": 0.0,
+      "cpu_usage": 20.4,
+      "memory_usage": 0.0,
+      "error_message": null
+    }
+  ]
+}

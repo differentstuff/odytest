@@ -1,0 +1,115 @@
+{
+  "summary": {
+    "total_models_tested": 1,
+    "analysis_timestamp": "2025-06-03 17:37:32",
+    "test_cases_per_model": [
+      24
+    ]
+  },
+  "model_rankings": {
+    "overall_accuracy": [
+      {
+        "model": "gemma3:1b_production",
+        "model_name": "gemma3:1b",
+        "prompt_variant": "production",
+        "score": 0.6208333333333333,
+        "intent_accuracy": 0.4583333333333333,
+        "json_validity": 1.0
+      }
+    ],
+    "speed": [
+      {
+        "model": "gemma3:1b_production",
+        "model_name": "gemma3:1b",
+        "prompt_variant": "production",
+        "avg_inference_time": 1.3831495940685272
+      }
+    ],
+    "confidence": [
+      {
+        "model": "gemma3:1b_production",
+        "model_name": "gemma3:1b",
+        "prompt_variant": "production",
+        "avg_confidence": 0.5541666666666667
+      }
+    ]
+  },
+  "performance_comparison": {
+    "gemma3:1b_production": {
+      "intent_accuracy": 0.4583333333333333,
+      "json_validity": 1.0,
+      "avg_inference_time": 1.3831495940685272,
+      "avg_confidence": 0.5541666666666667,
+      "success_rate": 1.0
+    }
+  },
+  "language_analysis": {
+    "French": {
+      "best_model": "gemma3:1b_production",
+      "avg_accuracy": 0.0,
+      "model_scores": {
+        "gemma3:1b_production": 0.0
+      }
+    },
+    "Italian": {
+      "best_model": "gemma3:1b_production",
+      "avg_accuracy": 0.5,
+      "model_scores": {
+        "gemma3:1b_production": 0.5
+      }
+    },
+    "German": {
+      "best_model": "gemma3:1b_production",
+      "avg_accuracy": 0.75,
+      "model_scores": {
+        "gemma3:1b_production": 0.75
+      }
+    },
+    "English": {
+      "best_model": "gemma3:1b_production",
+      "avg_accuracy": 0.4375,
+      "model_scores": {
+        "gemma3:1b_production": 0.4375
+      }
+    }
+  },
+  "difficulty_analysis": {
+    "Medium": {
+      "best_model": "gemma3:1b_production",
+      "avg_accuracy": 0.375,
+      "model_scores": {
+        "gemma3:1b_production": 0.375
+      }
+    },
+    "Hard": {
+      "best_model": "gemma3:1b_production",
+      "avg_accuracy": 0.45454545454545453,
+      "model_scores": {
+        "gemma3:1b_production": 0.45454545454545453
+      }
+    },
+    "Easy": {
+      "best_model": "gemma3:1b_production",
+      "avg_accuracy": 0.75,
+      "model_scores": {
+        "gemma3:1b_production": 0.75
+      }
+    },
+    "Very Hard": {
+      "best_model": "gemma3:1b_production",
+      "avg_accuracy": 0.0,
+      "model_scores": {
+        "gemma3:1b_production": 0.0
+      }
+    }
+  },
+  "recommendations": [
+    "🏆 Best Overall Performance: gemma3:1b with production prompt (62.1% combined score)",
+    "⚡ Fastest Inference: gemma3:1b with production prompt (1.38s average)",
+    "🌍 Best for French: gemma3:1b with production prompt (0.0% accuracy)",
+    "🌍 Best for Italian: gemma3:1b with production prompt (50.0% accuracy)",
+    "🌍 Best for German: gemma3:1b with production prompt (75.0% accuracy)",
+    "🌍 Best for English: gemma3:1b with production prompt (43.8% accuracy)",
+    "🎯 Production Recommendation: gemma3:1b with production prompt (balanced score: 27.5%, accuracy: 45.8%, speed: 1.38s)"
+  ]
+}

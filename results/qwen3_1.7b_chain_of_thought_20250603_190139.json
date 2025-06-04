@@ -1,0 +1,822 @@
+{
+  "metadata": {
+    "model_name": "qwen3:1.7b",
+    "prompt_variant": "chain_of_thought",
+    "timestamp": "20250603_190139",
+    "total_test_cases": 24,
+    "test_duration": 12.968736410140991
+  },
+  "summary_stats": {
+    "total_tests": 24,
+    "success_rate": 0.125,
+    "json_validity_rate": 0.125,
+    "intent_accuracy_rate": 0.125,
+    "model_name": "qwen3:1.7b",
+    "model_description": "qwen3 1.7b - Superior human preference alignment",
+    "timing": {
+      "avg_inference_time": 4.322912136713664,
+      "median_inference_time": 3.641841411590576,
+      "min_inference_time": 3.588780403137207,
+      "max_inference_time": 5.738114595413208
+    },
+    "confidence": {
+      "avg_confidence": 0.9,
+      "median_confidence": 0.9,
+      "min_confidence": 0.9,
+      "max_confidence": 0.9
+    },
+    "by_language": {
+      "Italian": {
+        "total": 2,
+        "accuracy": 0.5
+      },
+      "English": {
+        "total": 16,
+        "accuracy": 0.0625
+      },
+      "German": {
+        "total": 4,
+        "accuracy": 0.25
+      },
+      "French": {
+        "total": 2,
+        "accuracy": 0.0
+      }
+    },
+    "by_difficulty": {
+      "Easy": {
+        "total": 4,
+        "accuracy": 0.0
+      },
+      "Medium": {
+        "total": 8,
+        "accuracy": 0.125
+      },
+      "Hard": {
+        "total": 11,
+        "accuracy": 0.18181818181818182
+      },
+      "Very Hard": {
+        "total": 1,
+        "accuracy": 0.0
+      }
+    },
+    "by_category": {
+      "edge": {
+        "total": 5,
+        "accuracy": 0.0
+      },
+      "analysis": {
+        "total": 2,
+        "accuracy": 0.0
+      },
+      "emergency": {
+        "total": 5,
+        "accuracy": 0.6
+      },
+      "information": {
+        "total": 3,
+        "accuracy": 0.0
+      },
+      "view": {
+        "total": 3,
+        "accuracy": 0.0
+      },
+      "creation": {
+        "total": 4,
+        "accuracy": 0.0
+      },
+      "modification": {
+        "total": 2,
+        "accuracy": 0.0
+      }
+    }
+  },
+  "detailed_results": [
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 0,
+      "input_query": "Anna can't work Friday evening, who can replace her?",
+      "expected_intent": "emergency_replacement",
+      "expected_entities": {
+        "employee_name": "Anna",
+        "shift_day": "Friday",
+        "shift_time": "Evening",
+        "urgency": "emergency"
+      },
+      "language": "English",
+      "difficulty": "Medium",
+      "category": "emergency",
+      "success": true,
+      "inference_time": 3.588780403137207,
+      "raw_output": "<think>\nOkay, let's tackle this input step by step. The user provided the sentence: \"Anna can't work Friday evening, who can replace her?\" \n\nFirst, I need to parse the request according to the steps given. Let's go through each step.\n\nStep 1: Identify the main action. The main action here is \"can't work,\" which indicates an emergency replacement because it's about someone not being able to work a specific time. So the intent is likely emergency_replacement.\n\nStep 2: Extract person names. The person mentioned is Anna. So employee_name should be \"Anna\".\n\nStep 3: Find time references. The time mentioned is \"Friday evening.\" So shift_day is \"Friday\" and shift_time is \"evening\".\n\nStep 4: Detect urgency signals. The phrase \"can't work\" shows urgency, so urgency is set to \"emergency\".\n\nStep 5: Determine missing information. The user is asking who can replace Anna, but the input doesn't specify the time period. The shift_time is missing, so missing_info would be [\"shift_time\"].\n\nNow, compiling all this into the JSON structure as specified. The intent is emergency_replacement, entities include employee_name, shift_day, urgency, and missing_info. The confidence is 0.9 since all steps were correctly identified. The suggested question would be about the time period, but since the input doesn't have it, it's null.\n\nI need to make sure the JSON is correctly formatted with the entities and missing info as per the example. Also, check that the confidence is set appropriately. The example had confidence 0.9, so I'll go with that.\n</think>\n\n{\n  \"intent\": \"emergency_replacement\",\n  \"entities\": {\n    \"employee_name\": \"Anna\",\n    \"shift_day\": \"Friday\",\n    \"shift_time\": \"evening\",\n    \"urgency\": \"emergency\",\n    \"time_period\": null,\n    \"optimization_preference\": null\n  },\n  \"confidence\": 0.9,\n  \"missing_info\": [\"shift_time\"],\n  \"suggested_question\": \"What time on Friday can't Anna work?\"\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "emergency_replacement",
+        "entities": {
+          "employee_name": "Anna",
+          "shift_day": "Friday",
+          "shift_time": "evening",
+          "urgency": "emergency",
+          "time_period": null,
+          "optimization_preference": null
+        },
+        "confidence": 0.9,
+        "missing_info": [
+          "shift_time"
+        ],
+        "suggested_question": "What time on Friday can't Anna work?"
+      },
+      "validation_error": null,
+      "intent_match": true,
+      "intent_accuracy_type": "exact",
+      "entity_accuracy": {
+        "total_expected": 4,
+        "total_extracted": 4,
+        "correct_extractions": 3,
+        "missing_entities": [],
+        "extra_entities": [],
+        "incorrect_values": [
+          {
+            "entity": "shift_time",
+            "expected": "Evening",
+            "actual": "evening"
+          }
+        ],
+        "accuracy_score": 0.75
+      },
+      "confidence_score": 0.9,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 1,
+      "input_query": "Sarah ist krank und kann morgen nicht arbeiten",
+      "expected_intent": "emergency_replacement",
+      "expected_entities": {
+        "employee_name": "Sarah",
+        "time_period": "tomorrow",
+        "urgency": "emergency"
+      },
+      "language": "German",
+      "difficulty": "Hard",
+      "category": "emergency",
+      "success": true,
+      "inference_time": 3.641841411590576,
+      "raw_output": "<think>\nOkay, let's tackle this step by step. The input is \"Sarah ist krank und kann morgen nicht arbeiten\". The user wants me to parse this request and output a JSON based on the steps provided.\n\nFirst, I need to identify the main action. The sentence starts with \"ist krank\" which means \"is sick\" and \"kann morgen nicht arbeiten\" means \"can't work tomorrow\". The main action here is that Sarah is sick and can't work tomorrow. The action type would be emergency_replacement because it's about someone being unable to work due to illness.\n\nNext, extract person names. The person here is Sarah, so the employee_name should be \"Sarah\".\n\nThen, find time references. The time mentioned is \"morgen\" which is \"tomorrow\". So shift_day would be \"Tomorrow\".\n\nDetect urgency signals. Since Sarah is sick, the urgency is indicated by \"ist krank\" which is \"is sick\", so urgency is \"emergency\".\n\nMissing information: The sentence doesn't mention a specific time, just tomorrow. So the missing_info array would include \"shift_time\" because the time period isn't specified.\n\nNow, putting it all into the JSON structure. The intent is \"emergency_replacement\" as per the steps. The entities include employee_name as Sarah, shift_day as Tomorrow, urgency as emergency. Confidence is 0.9 since all steps were correctly identified. Missing info is [\"shift_time\"], and suggested question is not provided since it's not needed here.\n\nI need to make sure the JSON is correctly formatted with the right keys and values. Check that the confidence is 0.9, and the missing info is an array with the correct entry. Also, ensure that the entities are properly mapped.\n</think>\n\n{\n  \"intent\": \"emergency_replacement\",\n  \"entities\": {\n    \"employee_name\": \"Sarah\",\n    \"shift_day\": \"Tomorrow\",\n    \"urgency\": \"emergency\",\n    \"shift_time\": null,\n    \"optimization_preference\": null,\n    \"time_period\": null\n  },\n  \"confidence\": 0.9,\n  \"missing_info\": [\"shift_time\"],\n  \"suggested_question\": null\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "emergency_replacement",
+        "entities": {
+          "employee_name": "Sarah",
+          "shift_day": "Tomorrow",
+          "urgency": "emergency",
+          "shift_time": null,
+          "optimization_preference": null,
+          "time_period": null
+        },
+        "confidence": 0.9,
+        "missing_info": [
+          "shift_time"
+        ],
+        "suggested_question": null
+      },
+      "validation_error": null,
+      "intent_match": true,
+      "intent_accuracy_type": "exact",
+      "entity_accuracy": {
+        "total_expected": 3,
+        "total_extracted": 3,
+        "correct_extractions": 2,
+        "missing_entities": [
+          "time_period"
+        ],
+        "extra_entities": [
+          "shift_day"
+        ],
+        "incorrect_values": [],
+        "accuracy_score": 0.6666666666666666
+      },
+      "confidence_score": 0.9,
+      "cpu_usage": 11.899999999999999,
+      "memory_usage": 0.10000000000000142,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 2,
+      "input_query": "Jean-Pierre ne peut pas venir dimanche matin",
+      "expected_intent": "emergency_replacement",
+      "expected_entities": {
+        "employee_name": "Jean-Pierre",
+        "shift_day": "Sunday",
+        "shift_time": "Morning",
+        "urgency": "emergency"
+      },
+      "language": "French",
+      "difficulty": "Hard",
+      "category": "emergency",
+      "success": false,
+      "inference_time": 10.012970209121704,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 3,
+      "input_query": "Marco non può lavorare martedì pomeriggio",
+      "expected_intent": "emergency_replacement",
+      "expected_entities": {
+        "employee_name": "Marco",
+        "shift_day": "Tuesday",
+        "shift_time": "Afternoon",
+        "urgency": "emergency"
+      },
+      "language": "Italian",
+      "difficulty": "Hard",
+      "category": "emergency",
+      "success": true,
+      "inference_time": 5.738114595413208,
+      "raw_output": "<think>\nOkay, let's tackle this step by step. The input is \"Marco non può lavorare martedì pomeriggio\". The user wants me to parse this request and output a JSON based on the steps provided.\n\nFirst, the main action. The sentence starts with \"non può lavorare\", which translates to \"can't work\". The verb here is \"lavorare\", so the action is \"work\" but in the context of not being able to. Since the intent is about scheduling, the main action is likely related to scheduling, maybe an emergency replacement or a create schedule. But the exact intent isn't clear yet.\n\nNext, identifying the person. The name is Marco, which is a proper noun. So the employee_name should be Marco.\n\nThen, the time references. The day is \"martedì pomeriggio\", which is \"Tuesday afternoon\". So the shift_day would be \"martedì\" and the time_period is \"pomeriggio\". But the user's example had \"Freitag\" as the day, so here it's \"martedì\".\n\nUrgency signals. The phrase \"non può\" indicates that Marco can't work, which is an emergency situation. So urgency is set to \"emergency\".\n\nMissing information. The user hasn't specified a particular time, just the day and the time period. So the missing_info would be [\"shift_time\"].\n\nNow, the JSON structure. The intent needs to be determined. The possible intents are view_schedule, emergency_replacement, create_schedule, etc. Since the action is about not being able to work, it's likely an emergency replacement. But the example had \"emergency_replacement\" when the person couldn't work on a specific day. So maybe the intent here is \"emergency_replacement\".\n\nEntities: employee_name is Marco, shift_day is martedì, urgency is emergency. The other entities like shift_time and optimization_preference are missing, so they are null. The confidence is 0.9 because the information is clear except for the time.\n\nSo putting it all together, the JSON should have intent as \"emergency_replacement\", entities with the relevant fields, confidence 0.9, missing_info as [\"shift_time\"], and suggested_question as null since there's no specific time mentioned.\n</think>\n\n{\n  \"intent\": \"emergency_replacement\",\n  \"entities\": {\n    \"employee_name\": \"Marco\",\n    \"shift_day\": \"martedì\",\n    \"time_period\": \"pomeriggio\",\n    \"urgency\": \"emergency\"\n  },\n  \"confidence\": 0.9,\n  \"missing_info\": [\"shift_time\"],\n  \"suggested_question\": null\n}",
+      "json_validity": true,
+      "parsed_json": {
+        "intent": "emergency_replacement",
+        "entities": {
+          "employee_name": "Marco",
+          "shift_day": "martedì",
+          "time_period": "pomeriggio",
+          "urgency": "emergency"
+        },
+        "confidence": 0.9,
+        "missing_info": [
+          "shift_time"
+        ],
+        "suggested_question": null
+      },
+      "validation_error": null,
+      "intent_match": true,
+      "intent_accuracy_type": "exact",
+      "entity_accuracy": {
+        "total_expected": 4,
+        "total_extracted": 4,
+        "correct_extractions": 2,
+        "missing_entities": [
+          "shift_time"
+        ],
+        "extra_entities": [
+          "time_period"
+        ],
+        "incorrect_values": [
+          {
+            "entity": "shift_day",
+            "expected": "Tuesday",
+            "actual": "martedì"
+          }
+        ],
+        "accuracy_score": 0.5
+      },
+      "confidence_score": 0.9,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "error_message": null
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 4,
+      "input_query": "We need someone to cover the night shift tonight",
+      "expected_intent": "emergency_replacement",
+      "expected_entities": {
+        "shift_time": "Night",
+        "time_period": "today",
+        "urgency": "emergency"
+      },
+      "language": "English",
+      "difficulty": "Medium",
+      "category": "emergency",
+      "success": false,
+      "inference_time": 10.005481958389282,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 8.600000000000001,
+      "memory_usage": 0.0,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 5,
+      "input_query": "Create next week's schedule optimizing for cost",
+      "expected_intent": "create_schedule",
+      "expected_entities": {
+        "time_period": "next_week",
+        "optimization_preference": "cost"
+      },
+      "language": "English",
+      "difficulty": "Easy",
+      "category": "creation",
+      "success": false,
+      "inference_time": 10.011420726776123,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 6,
+      "input_query": "Build a schedule that makes employees happy",
+      "expected_intent": "create_schedule",
+      "expected_entities": {
+        "optimization_preference": "preference"
+      },
+      "language": "English",
+      "difficulty": "Medium",
+      "category": "creation",
+      "success": false,
+      "inference_time": 10.00464153289795,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 7,
+      "input_query": "Erstelle einen Schichtplan für nächste Woche",
+      "expected_intent": "create_schedule",
+      "expected_entities": {
+        "time_period": "next_week"
+      },
+      "language": "German",
+      "difficulty": "Medium",
+      "category": "creation",
+      "success": false,
+      "inference_time": 10.019527673721313,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 3.3000000000000007,
+      "memory_usage": 0.0,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 8,
+      "input_query": "Générer un planning équilibré pour cette semaine",
+      "expected_intent": "create_schedule",
+      "expected_entities": {
+        "time_period": "this_week",
+        "optimization_preference": "balanced"
+      },
+      "language": "French",
+      "difficulty": "Hard",
+      "category": "creation",
+      "success": false,
+      "inference_time": 10.010612964630127,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.10000000000000142,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 9,
+      "input_query": "List all available employees",
+      "expected_intent": "information",
+      "expected_entities": {},
+      "language": "English",
+      "difficulty": "Easy",
+      "category": "information",
+      "success": false,
+      "inference_time": 10.009558200836182,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 2.1000000000000014,
+      "memory_usage": 0.0,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 10,
+      "input_query": "Show me the staff with training in bartending",
+      "expected_intent": "information",
+      "expected_entities": {},
+      "language": "English",
+      "difficulty": "Medium",
+      "category": "information",
+      "success": false,
+      "inference_time": 10.008381128311157,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 11,
+      "input_query": "Wer ist heute verfügbar?",
+      "expected_intent": "information",
+      "expected_entities": {
+        "time_period": "today"
+      },
+      "language": "German",
+      "difficulty": "Medium",
+      "category": "information",
+      "success": false,
+      "inference_time": 10.007777452468872,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 12,
+      "input_query": "Show me who's working this weekend",
+      "expected_intent": "view_schedule",
+      "expected_entities": {
+        "time_period": "this_week"
+      },
+      "language": "English",
+      "difficulty": "Easy",
+      "category": "view",
+      "success": false,
+      "inference_time": 10.002320528030396,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 2.900000000000002,
+      "memory_usage": 0.20000000000000284,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 13,
+      "input_query": "What's the current schedule for Monday?",
+      "expected_intent": "view_schedule",
+      "expected_entities": {
+        "shift_day": "Monday"
+      },
+      "language": "English",
+      "difficulty": "Easy",
+      "category": "view",
+      "success": false,
+      "inference_time": 10.010763883590698,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 14,
+      "input_query": "Mostra il turno di domani sera",
+      "expected_intent": "view_schedule",
+      "expected_entities": {
+        "time_period": "tomorrow",
+        "shift_time": "Evening"
+      },
+      "language": "Italian",
+      "difficulty": "Hard",
+      "category": "view",
+      "success": false,
+      "inference_time": 10.001819133758545,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 11.899999999999999,
+      "memory_usage": 0.5,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 15,
+      "input_query": "Move Sarah from Monday morning to Tuesday afternoon",
+      "expected_intent": "modify_schedule",
+      "expected_entities": {
+        "employee_name": "Sarah",
+        "shift_day": "Monday",
+        "shift_time": "Morning"
+      },
+      "language": "English",
+      "difficulty": "Hard",
+      "category": "modification",
+      "success": false,
+      "inference_time": 10.008003950119019,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 8.0,
+      "memory_usage": 0.0,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 16,
+      "input_query": "Swap Anna and Felix for Friday shifts",
+      "expected_intent": "modify_schedule",
+      "expected_entities": {
+        "employee_name": "Anna",
+        "shift_day": "Friday"
+      },
+      "language": "English",
+      "difficulty": "Hard",
+      "category": "modification",
+      "success": false,
+      "inference_time": 10.014384031295776,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.10000000000000142,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 17,
+      "input_query": "What if we move Sarah from Monday morning to Tuesday afternoon?",
+      "expected_intent": "analyze_scenario",
+      "expected_entities": {
+        "employee_name": "Sarah",
+        "shift_day": "Monday",
+        "shift_time": "Morning"
+      },
+      "language": "English",
+      "difficulty": "Hard",
+      "category": "analysis",
+      "success": false,
+      "inference_time": 10.010661125183105,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 3.400000000000002,
+      "memory_usage": 0.0,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 18,
+      "input_query": "Analyze the impact of adding an extra evening shift",
+      "expected_intent": "analyze_scenario",
+      "expected_entities": {
+        "shift_time": "Evening"
+      },
+      "language": "English",
+      "difficulty": "Hard",
+      "category": "analysis",
+      "success": false,
+      "inference_time": 10.004372119903564,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 19,
+      "input_query": "Mike",
+      "expected_intent": "unknown",
+      "expected_entities": {
+        "employee_name": "Mike"
+      },
+      "language": "English",
+      "difficulty": "Hard",
+      "category": "edge",
+      "success": false,
+      "inference_time": 10.014815330505371,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 2.799999999999997,
+      "memory_usage": 0.19999999999999574,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 20,
+      "input_query": "",
+      "expected_intent": "unknown",
+      "expected_entities": {},
+      "language": "English",
+      "difficulty": "Hard",
+      "category": "edge",
+      "success": false,
+      "inference_time": 10.005395412445068,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 2.8999999999999986,
+      "memory_usage": 0.0,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 21,
+      "input_query": "Anna-Maria kann nur sonntags von 8-16 Uhr mit Kellner-Fähigkeiten",
+      "expected_intent": "information",
+      "expected_entities": {
+        "employee_name": "Anna-Maria",
+        "shift_day": "Sunday"
+      },
+      "language": "German",
+      "difficulty": "Very Hard",
+      "category": "edge",
+      "success": false,
+      "inference_time": 10.013329267501831,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.10000000000000142,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 22,
+      "input_query": "Help me with something",
+      "expected_intent": "unknown",
+      "expected_entities": {},
+      "language": "English",
+      "difficulty": "Medium",
+      "category": "edge",
+      "success": false,
+      "inference_time": 10.009713888168335,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 5.700000000000003,
+      "memory_usage": 0.0,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    },
+    {
+      "model_name": "qwen3:1.7b",
+      "prompt_variant": "chain_of_thought",
+      "test_case_id": 23,
+      "input_query": "Schedule meeting for 3pm tomorrow",
+      "expected_intent": "unknown",
+      "expected_entities": {
+        "time_period": "tomorrow"
+      },
+      "language": "English",
+      "difficulty": "Medium",
+      "category": "edge",
+      "success": false,
+      "inference_time": 10.00692367553711,
+      "raw_output": "",
+      "json_validity": false,
+      "parsed_json": null,
+      "validation_error": null,
+      "intent_match": false,
+      "intent_accuracy_type": "unknown",
+      "entity_accuracy": {},
+      "confidence_score": null,
+      "cpu_usage": 0.0,
+      "memory_usage": 0.0,
+      "error_message": "Unexpected error: Request timed out after 10 seconds"
+    }
+  ]
+}

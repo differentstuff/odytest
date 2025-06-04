@@ -1,0 +1,220 @@
+{
+  "summary": {
+    "total_models_tested": 4,
+    "analysis_timestamp": "2025-06-03 18:56:04",
+    "test_cases_per_model": [
+      24
+    ]
+  },
+  "model_rankings": {
+    "overall_accuracy": [
+      {
+        "model": "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_multilingual",
+        "model_name": "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b",
+        "prompt_variant": "multilingual",
+        "score": 0.7958333333333334,
+        "intent_accuracy": 0.7083333333333334,
+        "json_validity": 1.0
+      },
+      {
+        "model": "qwen3:0.6b_multilingual",
+        "model_name": "qwen3:0.6b",
+        "prompt_variant": "multilingual",
+        "score": 0.7833333333333333,
+        "intent_accuracy": 0.7083333333333334,
+        "json_validity": 0.9583333333333334
+      },
+      {
+        "model": "qwen3:1.7b_multilingual",
+        "model_name": "qwen3:1.7b",
+        "prompt_variant": "multilingual",
+        "score": 0.6333333333333333,
+        "intent_accuracy": 0.5833333333333334,
+        "json_validity": 0.75
+      },
+      {
+        "model": "gemma3:1b_multilingual",
+        "model_name": "gemma3:1b",
+        "prompt_variant": "multilingual",
+        "score": 0.4083333333333333,
+        "intent_accuracy": 0.20833333333333334,
+        "json_validity": 0.875
+      }
+    ],
+    "speed": [
+      {
+        "model": "gemma3:1b_multilingual",
+        "model_name": "gemma3:1b",
+        "prompt_variant": "multilingual",
+        "avg_inference_time": 1.0305337011814117
+      },
+      {
+        "model": "qwen3:0.6b_multilingual",
+        "model_name": "qwen3:0.6b",
+        "prompt_variant": "multilingual",
+        "avg_inference_time": 2.229645609855652
+      },
+      {
+        "model": "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_multilingual",
+        "model_name": "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b",
+        "prompt_variant": "multilingual",
+        "avg_inference_time": 2.2573995689551034
+      },
+      {
+        "model": "qwen3:1.7b_multilingual",
+        "model_name": "qwen3:1.7b",
+        "prompt_variant": "multilingual",
+        "avg_inference_time": 4.95548689365387
+      }
+    ],
+    "confidence": [
+      {
+        "model": "gemma3:1b_multilingual",
+        "model_name": "gemma3:1b",
+        "prompt_variant": "multilingual",
+        "avg_confidence": 0.9333333333333333
+      },
+      {
+        "model": "qwen3:1.7b_multilingual",
+        "model_name": "qwen3:1.7b",
+        "prompt_variant": "multilingual",
+        "avg_confidence": 0.5305555555555556
+      },
+      {
+        "model": "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_multilingual",
+        "model_name": "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b",
+        "prompt_variant": "multilingual",
+        "avg_confidence": 0.07291666666666667
+      },
+      {
+        "model": "qwen3:0.6b_multilingual",
+        "model_name": "qwen3:0.6b",
+        "prompt_variant": "multilingual",
+        "avg_confidence": 0.0391304347826087
+      }
+    ]
+  },
+  "performance_comparison": {
+    "gemma3:1b_multilingual": {
+      "intent_accuracy": 0.20833333333333334,
+      "json_validity": 0.875,
+      "avg_inference_time": 1.0305337011814117,
+      "avg_confidence": 0.9333333333333333,
+      "success_rate": 1.0
+    },
+    "qwen3:1.7b_multilingual": {
+      "intent_accuracy": 0.5833333333333334,
+      "json_validity": 0.75,
+      "avg_inference_time": 4.95548689365387,
+      "avg_confidence": 0.5305555555555556,
+      "success_rate": 0.75
+    },
+    "qwen3:0.6b_multilingual": {
+      "intent_accuracy": 0.7083333333333334,
+      "json_validity": 0.9583333333333334,
+      "avg_inference_time": 2.229645609855652,
+      "avg_confidence": 0.0391304347826087,
+      "success_rate": 1.0
+    },
+    "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_multilingual": {
+      "intent_accuracy": 0.7083333333333334,
+      "json_validity": 1.0,
+      "avg_inference_time": 2.2573995689551034,
+      "avg_confidence": 0.07291666666666667,
+      "success_rate": 1.0
+    }
+  },
+  "language_analysis": {
+    "German": {
+      "best_model": "qwen3:1.7b_multilingual",
+      "avg_accuracy": 0.4375,
+      "model_scores": {
+        "gemma3:1b_multilingual": 0.25,
+        "qwen3:1.7b_multilingual": 0.5,
+        "qwen3:0.6b_multilingual": 0.5,
+        "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_multilingual": 0.5
+      }
+    },
+    "Italian": {
+      "best_model": "qwen3:1.7b_multilingual",
+      "avg_accuracy": 0.875,
+      "model_scores": {
+        "gemma3:1b_multilingual": 0.5,
+        "qwen3:1.7b_multilingual": 1.0,
+        "qwen3:0.6b_multilingual": 1.0,
+        "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_multilingual": 1.0
+      }
+    },
+    "English": {
+      "best_model": "qwen3:0.6b_multilingual",
+      "avg_accuracy": 0.515625,
+      "model_scores": {
+        "gemma3:1b_multilingual": 0.125,
+        "qwen3:1.7b_multilingual": 0.5,
+        "qwen3:0.6b_multilingual": 0.75,
+        "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_multilingual": 0.6875
+      }
+    },
+    "French": {
+      "best_model": "qwen3:1.7b_multilingual",
+      "avg_accuracy": 0.75,
+      "model_scores": {
+        "gemma3:1b_multilingual": 0.5,
+        "qwen3:1.7b_multilingual": 1.0,
+        "qwen3:0.6b_multilingual": 0.5,
+        "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_multilingual": 1.0
+      }
+    }
+  },
+  "difficulty_analysis": {
+    "Hard": {
+      "best_model": "qwen3:0.6b_multilingual",
+      "avg_accuracy": 0.5909090909090909,
+      "model_scores": {
+        "gemma3:1b_multilingual": 0.2727272727272727,
+        "qwen3:1.7b_multilingual": 0.6363636363636364,
+        "qwen3:0.6b_multilingual": 0.7272727272727273,
+        "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_multilingual": 0.7272727272727273
+      }
+    },
+    "Very Hard": {
+      "best_model": "gemma3:1b_multilingual",
+      "avg_accuracy": 0.0,
+      "model_scores": {
+        "gemma3:1b_multilingual": 0.0,
+        "qwen3:1.7b_multilingual": 0.0,
+        "qwen3:0.6b_multilingual": 0.0,
+        "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_multilingual": 0.0
+      }
+    },
+    "Medium": {
+      "best_model": "qwen3:0.6b_multilingual",
+      "avg_accuracy": 0.5,
+      "model_scores": {
+        "gemma3:1b_multilingual": 0.25,
+        "qwen3:1.7b_multilingual": 0.5,
+        "qwen3:0.6b_multilingual": 0.625,
+        "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_multilingual": 0.625
+      }
+    },
+    "Easy": {
+      "best_model": "qwen3:0.6b_multilingual",
+      "avg_accuracy": 0.6875,
+      "model_scores": {
+        "gemma3:1b_multilingual": 0.0,
+        "qwen3:1.7b_multilingual": 0.75,
+        "qwen3:0.6b_multilingual": 1.0,
+        "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_multilingual": 1.0
+      }
+    }
+  },
+  "recommendations": [
+    "🏆 Best Overall Performance: goekdenizguelmez/JOSIEFIED-Qwen3:0.6b with multilingual prompt (79.6% combined score)",
+    "⚡ Fastest Inference: gemma3:1b with multilingual prompt (1.03s average)",
+    "🌍 Best for German: qwen3:1.7b with multilingual prompt (50.0% accuracy)",
+    "🌍 Best for Italian: qwen3:1.7b with multilingual prompt (100.0% accuracy)",
+    "🌍 Best for English: qwen3:0.6b with multilingual prompt (75.0% accuracy)",
+    "🌍 Best for French: qwen3:1.7b with multilingual prompt (100.0% accuracy)",
+    "🎯 Production Recommendation: qwen3:0.6b with multilingual prompt (balanced score: 64.5%, accuracy: 70.8%, speed: 2.23s)"
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "summary": {
+    "total_models_tested": 4,
+    "analysis_timestamp": "2025-06-03 19:07:08",
+    "test_cases_per_model": [
+      24
+    ]
+  },
+  "model_rankings": {
+    "overall_accuracy": [
+      {
+        "model": "qwen3:0.6b_chain_of_thought",
+        "model_name": "qwen3:0.6b",
+        "prompt_variant": "chain_of_thought",
+        "score": 0.5375,
+        "intent_accuracy": 0.5,
+        "json_validity": 0.625
+      },
+      {
+        "model": "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_chain_of_thought",
+        "model_name": "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b",
+        "prompt_variant": "chain_of_thought",
+        "score": 0.5375,
+        "intent_accuracy": 0.5,
+        "json_validity": 0.625
+      },
+      {
+        "model": "qwen3:1.7b_chain_of_thought",
+        "model_name": "qwen3:1.7b",
+        "prompt_variant": "chain_of_thought",
+        "score": 0.125,
+        "intent_accuracy": 0.125,
+        "json_validity": 0.125
+      },
+      {
+        "model": "gemma3:1b_chain_of_thought",
+        "model_name": "gemma3:1b",
+        "prompt_variant": "chain_of_thought",
+        "score": 0.041666666666666664,
+        "intent_accuracy": 0.041666666666666664,
+        "json_validity": 0.041666666666666664
+      }
+    ],
+    "speed": [
+      {
+        "model": "gemma3:1b_chain_of_thought",
+        "model_name": "gemma3:1b",
+        "prompt_variant": "chain_of_thought",
+        "avg_inference_time": 1.0160075624783833
+      },
+      {
+        "model": "qwen3:1.7b_chain_of_thought",
+        "model_name": "qwen3:1.7b",
+        "prompt_variant": "chain_of_thought",
+        "avg_inference_time": 4.322912136713664
+      },
+      {
+        "model": "qwen3:0.6b_chain_of_thought",
+        "model_name": "qwen3:0.6b",
+        "prompt_variant": "chain_of_thought",
+        "avg_inference_time": 4.3446927229563395
+      },
+      {
+        "model": "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_chain_of_thought",
+        "model_name": "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b",
+        "prompt_variant": "chain_of_thought",
+        "avg_inference_time": 6.483295622326079
+      }
+    ],
+    "confidence": [
+      {
+        "model": "qwen3:1.7b_chain_of_thought",
+        "model_name": "qwen3:1.7b",
+        "prompt_variant": "chain_of_thought",
+        "avg_confidence": 0.9
+      },
+      {
+        "model": "qwen3:0.6b_chain_of_thought",
+        "model_name": "qwen3:0.6b",
+        "prompt_variant": "chain_of_thought",
+        "avg_confidence": 0.060000000000000005
+      }
+    ]
+  },
+  "performance_comparison": {
+    "gemma3:1b_chain_of_thought": {
+      "intent_accuracy": 0.041666666666666664,
+      "json_validity": 0.041666666666666664,
+      "avg_inference_time": 1.0160075624783833,
+      "avg_confidence": 0.0,
+      "success_rate": 1.0
+    },
+    "qwen3:1.7b_chain_of_thought": {
+      "intent_accuracy": 0.125,
+      "json_validity": 0.125,
+      "avg_inference_time": 4.322912136713664,
+      "avg_confidence": 0.9,
+      "success_rate": 0.125
+    },
+    "qwen3:0.6b_chain_of_thought": {
+      "intent_accuracy": 0.5,
+      "json_validity": 0.625,
+      "avg_inference_time": 4.3446927229563395,
+      "avg_confidence": 0.060000000000000005,
+      "success_rate": 0.625
+    },
+    "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_chain_of_thought": {
+      "intent_accuracy": 0.5,
+      "json_validity": 0.625,
+      "avg_inference_time": 6.483295622326079,
+      "avg_confidence": 0.0,
+      "success_rate": 0.875
+    }
+  },
+  "language_analysis": {
+    "English": {
+      "best_model": "qwen3:0.6b_chain_of_thought",
+      "avg_accuracy": 0.21875,
+      "model_scores": {
+        "gemma3:1b_chain_of_thought": 0.0625,
+        "qwen3:1.7b_chain_of_thought": 0.0625,
+        "qwen3:0.6b_chain_of_thought": 0.375,
+        "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_chain_of_thought": 0.375
+      }
+    },
+    "German": {
+      "best_model": "qwen3:0.6b_chain_of_thought",
+      "avg_accuracy": 0.3125,
+      "model_scores": {
+        "gemma3:1b_chain_of_thought": 0.0,
+        "qwen3:1.7b_chain_of_thought": 0.25,
+        "qwen3:0.6b_chain_of_thought": 0.5,
+        "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_chain_of_thought": 0.5
+      }
+    },
+    "Italian": {
+      "best_model": "qwen3:0.6b_chain_of_thought",
+      "avg_accuracy": 0.625,
+      "model_scores": {
+        "gemma3:1b_chain_of_thought": 0.0,
+        "qwen3:1.7b_chain_of_thought": 0.5,
+        "qwen3:0.6b_chain_of_thought": 1.0,
+        "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_chain_of_thought": 1.0
+      }
+    },
+    "French": {
+      "best_model": "qwen3:0.6b_chain_of_thought",
+      "avg_accuracy": 0.5,
+      "model_scores": {
+        "gemma3:1b_chain_of_thought": 0.0,
+        "qwen3:1.7b_chain_of_thought": 0.0,
+        "qwen3:0.6b_chain_of_thought": 1.0,
+        "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_chain_of_thought": 1.0
+      }
+    }
+  },
+  "difficulty_analysis": {
+    "Easy": {
+      "best_model": "qwen3:0.6b_chain_of_thought",
+      "avg_accuracy": 0.3125,
+      "model_scores": {
+        "gemma3:1b_chain_of_thought": 0.0,
+        "qwen3:1.7b_chain_of_thought": 0.0,
+        "qwen3:0.6b_chain_of_thought": 0.75,
+        "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_chain_of_thought": 0.5
+      }
+    },
+    "Medium": {
+      "best_model": "qwen3:0.6b_chain_of_thought",
+      "avg_accuracy": 0.28125,
+      "model_scores": {
+        "gemma3:1b_chain_of_thought": 0.0,
+        "qwen3:1.7b_chain_of_thought": 0.125,
+        "qwen3:0.6b_chain_of_thought": 0.5,
+        "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_chain_of_thought": 0.5
+      }
+    },
+    "Hard": {
+      "best_model": "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_chain_of_thought",
+      "avg_accuracy": 0.3181818181818182,
+      "model_scores": {
+        "gemma3:1b_chain_of_thought": 0.09090909090909091,
+        "qwen3:1.7b_chain_of_thought": 0.18181818181818182,
+        "qwen3:0.6b_chain_of_thought": 0.45454545454545453,
+        "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_chain_of_thought": 0.5454545454545454
+      }
+    },
+    "Very Hard": {
+      "best_model": "gemma3:1b_chain_of_thought",
+      "avg_accuracy": 0.0,
+      "model_scores": {
+        "gemma3:1b_chain_of_thought": 0.0,
+        "qwen3:1.7b_chain_of_thought": 0.0,
+        "qwen3:0.6b_chain_of_thought": 0.0,
+        "goekdenizguelmez/JOSIEFIED-Qwen3:0.6b_chain_of_thought": 0.0
+      }
+    }
+  },
+  "recommendations": [
+    "🏆 Best Overall Performance: qwen3:0.6b with chain_of_thought prompt (53.8% combined score)",
+    "⚡ Fastest Inference: gemma3:1b with chain_of_thought prompt (1.02s average)",
+    "🌍 Best for English: qwen3:0.6b with chain_of_thought prompt (37.5% accuracy)",
+    "🌍 Best for German: qwen3:0.6b with chain_of_thought prompt (50.0% accuracy)",
+    "🌍 Best for Italian: qwen3:0.6b with chain_of_thought prompt (100.0% accuracy)",
+    "🌍 Best for French: qwen3:0.6b with chain_of_thought prompt (100.0% accuracy)",
+    "🎯 Production Recommendation: qwen3:0.6b with chain_of_thought prompt (balanced score: 43.2%, accuracy: 50.0%, speed: 4.34s)"
+  ]
+}
